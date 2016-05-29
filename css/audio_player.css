@@ -1,0 +1,320 @@
+/*
+    Created on : 30-Mar-2016, 23:43:06
+    Author     : Cameron Small
+    cameronsmall@lsu.co.uk
+*/
+body {
+  font-family: Roboto, sans-serif;
+  margin: 0; }
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 100%; }
+
+#iframe_backdrop {
+  position: fixed;
+  z-index: 300;
+  top: 0;
+  right: 0;
+  bottom: 0em;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.9);
+  opacity: 0;
+  transition: opacity 1s; }
+
+#iframe_player_holder {
+  font-size: 5em;
+  z-index: 310;
+  width: 16em;
+  height: 9em;
+  background-color: black;
+  border-radius: 5px;
+  overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  transition: opacity 1s;
+  display: none; }
+
+#iframe_player {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+#iframe_info {
+  position: fixed;
+  z-index: 305;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: none;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s; }
+
+#iframe_title {
+  width: 100%;
+  white-space: nowrap;
+  font-size: 1.8em;
+  padding: 0.7em;
+  float: left; }
+
+#iframe_description {
+  width: 100%;
+  padding: 5px;
+  display: none; }
+
+.show {
+  display: block !important; }
+
+.playerbar {
+  position: fixed;
+  z-index: 310;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2486c7;
+  box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.12);
+  height: 6em;
+  height: 96px;
+  opacity: 0;
+  transition: opacity 1s;
+  /* Temporary value until JS activates it */
+  /* display:none; */ }
+
+#player_left {
+  position: absolute;
+  width: 16em;
+  height: 13.5em;
+  left: 2em;
+  bottom: 0em; }
+
+#player_poster {
+  height: 9em;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  background-size: cover; }
+
+#player_controls {
+  height: 3em;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  color: white; }
+
+#player_controls i {
+  font-size: 3em;
+  line-height: inherit;
+  cursor: pointer; }
+
+#play_button_container {
+  display: inline-block;
+  height: 3em;
+  width: 3em;
+  border-radius: 1.5em; }
+
+#play_button_container i {
+  display: block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em; }
+
+#player_centre {
+  margin-left: 20em;
+  margin-right: 2em;
+  height: 100%;
+  padding: 0;
+  color: white; }
+
+#player_seekrange {
+  width: 100%; }
+
+#current_info {
+  height: 32px;
+  line-height: 40px;
+  font-size: 20px;
+  white-space: nowrap; }
+
+#player_seekbar {
+  height: 32px;
+  line-height: 32px; }
+
+#player_time {
+  height: 32px;
+  line-height: 16px; }
+
+#player_buffering img {
+  height: 1em; }
+
+#player_live {
+  display: block;
+  font-size: 1.4em;
+  height: 1.5em;
+  width: 4.5em;
+  text-align: center;
+  line-height: 1.5em;
+  background-color: #FF1744;
+  margin-top: 10px; }
+
+/* Seekbar styles */
+input[type=range] {
+  -webkit-appearance: none;
+  height: 32px;
+  line-height: 32px;
+  background-color: transparent;
+  outline: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: none;
+  cursor: pointer; }
+
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background-color: white;
+  height: 6px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 3px; }
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  cursor: pointer;
+  color: red;
+  background-color: #FF1744;
+  border-radius: 9px;
+  margin-top: -6px;
+  height: 18px;
+  width: 18px;
+  opacity: 1;
+  transition: opacity 1s;
+  /* TEST */
+          /*
+background-color:transparent;
+border:1px solid black; */ }
+
+input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+  background-color: white;
+  height: 6px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  outline: 0px;
+  border-radius: 5px; }
+
+input[type=range]::-moz-range-progress {
+  height: 6px;
+  background-color: #EF5350;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px; }
+
+input[type=range]::-moz-range-thumb {
+  -moz-appearance: none;
+  cursor: pointer;
+  color: red;
+  background-color: #FF1744;
+  border: none;
+  border-radius: 9px;
+  height: 18px;
+  width: 18px; }
+
+input[type=range]::-ms-fill-lower, input[type=range]::-ms-fill-upper {
+  cursor: pointer;
+  height: 6px;
+  cursor: hand; }
+
+input[type=range]::-ms-fill-lower {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  background-color: #EF5350; }
+
+input[type=range]::-ms-fill-upper {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  background-color: #FFF; }
+
+input[type=range]::-ms-thumb {
+  background-color: #FF1744;
+  height: 18px;
+  width: 18px;
+  border-radius: 9px;
+  margin-top: 0px; }
+
+input[type=range]::-ms-tooltip {
+  display: none; }
+
+input[type=range]::-ms-ticks {
+  display: none; }
+
+.spotify {
+  height: 18.49em !important;
+  font-size: 2em !important; }
+
+.soundcloud {
+  font-size: 3em !important; }
+
+@media (max-width: 1600px) {
+  #iframe_player {
+    font-size: 3.5em; } }
+@media (max-width: 1280px) {
+  #iframe_container_not {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0; }
+
+  #iframe_player {
+    width: 100vw;
+    height: 56.75vw;
+    transform: none;
+    margin: 0;
+    left: 0;
+    right: 0;
+    top: 50%;
+    bottom: 50%;
+    transform: translate(0, -50%); }
+
+  #iframe_backdrop {
+    background-color: black; } }
+@media (max-width: 900px) {
+  #playerbar, #player_centre, #player_left, #player_controls, #play_button_container {
+    position: static; }
+
+  #playerbar {
+    position: static;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    display: block;
+    opacity: 1; }
+
+  #player_title {
+    overflow-x: auto; }
+
+  #player_left {
+    width: 100%;
+    height: auto; }
+
+  #player_centre {
+    margin-left: 1em;
+    margin-right: 1em; }
+
+  #player_poster {
+    width: 80vw;
+    height: 40vw;
+    margin-left: auto;
+    margin-right: auto; } }
+
+/*# sourceMappingURL=audio_player.css.map */
