@@ -20,7 +20,7 @@
            <div class="container">
                 <a href="." class="brand-logo">
                     <img src="res/lcr_white.png" alt="LSUTV Logo" id="tv-logo" class="left" />
-                    <span>Loughborough Campus Radio</span>
+                    <!-- <span>Loughborough Campus Radio</span> -->
                 </a>
                 <a class="hide-on-large-only button-collapse" data-activates="mobile-nav">
                     <i class="material-icons">menu</i>

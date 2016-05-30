@@ -82,36 +82,47 @@ iframe {
   right: 0;
   background-color: #2486c7;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.12);
-  height: 6em;
-  height: 96px;
+  height: 70px;
   opacity: 0;
   transition: opacity 1s;
   /* Temporary value until JS activates it */
   /* display:none; */ }
 
+#player_left, #player_centre, #player_right {
+  height: 70px;
+  overflow: hidden;
+  color: white; }
+
 #player_left {
-  position: absolute;
-  width: 16em;
-  height: 13.5em;
-  left: 2em;
-  bottom: 0em; }
+  width: 10%;
+  float: left;
+  display: inline-block; }
+
+#player_centre {
+  width: 64%;
+  padding: 0;
+  display: inline-block; }
+
+#player_right {
+  margin-left: 5px;
+  width: 25%;
+  float: right;
+  display: inline-block; }
 
 #player_poster {
-  height: 9em;
-  top: 0;
-  width: 100%;
+  height: 60px;
+  width: 106.66667px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  float: left;
   background-color: white;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
   background-size: cover; }
 
 #player_controls {
-  height: 3em;
-  position: absolute;
-  bottom: 0;
   width: 100%;
   text-align: center;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  line-height: 70px;
   color: white; }
 
 #player_controls i {
@@ -131,42 +142,43 @@ iframe {
   height: 1em;
   line-height: 1em; }
 
-#player_centre {
-  margin-left: 20em;
-  margin-right: 2em;
-  height: 100%;
-  padding: 0;
-  color: white; }
-
 #player_seekrange {
+  height: 70px;
   width: 100%; }
 
 #current_info {
-  height: 32px;
-  line-height: 40px;
+  height: 70px;
+  float: left;
+  margin-left: 10px;
+  line-height: auto;
   font-size: 20px;
   white-space: nowrap; }
 
+#player_nowplaying {
+  color: #D5D5D5;
+  font-size: 0.9em; }
+
 #player_seekbar {
-  height: 32px;
-  line-height: 32px; }
+  height: 70px;
+  line-height: 70px; }
 
 #player_time {
-  height: 32px;
-  line-height: 16px; }
+  height: 70px;
+  line-height: 70px; }
 
 #player_buffering img {
   height: 1em; }
 
-#player_live {
-  display: block;
-  font-size: 1.4em;
-  height: 1.5em;
-  width: 4.5em;
-  text-align: center;
-  line-height: 1.5em;
+.circle {
+  height: 18px;
+  width: 18px;
+  border-radius: 9px;
   background-color: #FF1744;
-  margin-top: 10px; }
+  display: inline-block;
+  margin-right: 8px; }
+
+#player_live {
+  font-size: 1.8em; }
 
 /* Seekbar styles */
 input[type=range] {
@@ -316,5 +328,6 @@ input[type=range]::-ms-ticks {
     height: 40vw;
     margin-left: auto;
     margin-right: auto; } }
+/*# sourceMappingURL=audio_player.css.map */
 
 /*# sourceMappingURL=audio_player.css.map */

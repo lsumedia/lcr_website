@@ -51,6 +51,9 @@ nav {
   background-color: transparent;
   z-index: 50; }
 
+.navbar-fixed {
+  z-index: 50; }
+
 #search-bar {
   height: 64px; }
 

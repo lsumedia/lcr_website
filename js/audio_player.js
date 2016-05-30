@@ -47,8 +47,6 @@ function lcrPlayer(){
     //Load HTML bits and pieces
     this.element.innerHTML = '\
     <div id="player_left">\
-        <div id="player_poster">\
-        </div>\
         <div id="player_controls">\
             <i class="material-icons" id="rewind_button">fast_rewind</i>\
             <a class="play_button" id="play_button_container"><i class="material-icons" id="play_button">play_arrow</i></a>\
@@ -56,18 +54,21 @@ function lcrPlayer(){
         </div>\
     </div>\
     <div id="player_centre">\
-        <div id="current_info">\
-            <span id="player_title"></span>\
-            <span id="player_buffering" style="display:none;"><img src="res/loading_ring.svg"></span>\
-        </div>\
         <div id="player_seekbar">\
-            <div id="player_live" style="display:none;">STREAM</div>\
+            <div id="player_live" style="display:none;"><div class="circle"></div>Live</div>\
             <input id="player_seekrange" type="range" min="0" max="1000" value="0" step="1">\
             <style id="webkit_progress">input[type=range]::-webkit-slider-runnable-track { background: -webkit-linear-gradient(left, #EF5350 0%, #EF5350 0%, white 0%); }</style>\
         </div>\
         <div id="player_time"><span id="player_elapsed">00:00</span>/<span id="player_duration">00:00</div>\
     </div>\
     <div id="player_right">\
+        <div id="player_poster">\
+        </div>\
+        <div id="current_info">\
+            <span id="player_title"></span>\
+            <span id="player_buffering" style="display:none;"><img src="res/loading_ring.svg"></span><br />\
+            <span id="player_nowplaying"></span>\
+        </div>\
     </div>';
     
     this.element.className = 'playerbar';
@@ -118,6 +119,8 @@ function lcrPlayer(){
     this.posterElement = document.getElementById('player_poster');
     //Track title
     this.title = document.getElementById('player_title');
+    //Current song
+    this.nowplaying = document.getElementById('player_nowplaying');
     
     //Buttons
     this.playBtn = document.getElementById('play_button');
@@ -225,12 +228,12 @@ function lcrPlayer(){
                 success: function(data){
                     var self = $this; //Reference to player object
                     var info = JSON.parse(data);
-                    if(info['nowplaying'] && false){
-                        self.title.innerHTML = info['nowplaying'];
-                        self.IframeTitle.innerHTML = info['nowplaying'];
+                    self.title.innerHTML = info['title'];
+                    self.IframeTitle.innerHTML = info['title'];
+                    if(info['nowplaying']){
+                        self.nowplaying.innerHTML = info['nowplaying'];
                     }else{
-                        self.title.innerHTML = info['title'];
-                        self.IframeTitle.innerHTML = info['title'];
+                       self.nowplaying.innerHTML = '';
                     }
                     self.IframeDescription.innerHTML = info['description'];
                     self.posterElement.style.backgroundImage = "url('" + info['poster'] + "')";

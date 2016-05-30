@@ -28,7 +28,8 @@
         
         <script>
             var player = new lcrPlayer();
-            player.load(54);
+            //player.load(-1);
+            player.load(-1);
         </script>
         
         <?php //require("components/footer.php"); ?>
