@@ -33,7 +33,7 @@ function niceTime(totalSeconds){
     }
 }
 
-function lcrPlayer(){
+function audioPlayer(){
     
     publicphp = config['publicphp'];
     //DOM Element containing controls + playback info
@@ -65,9 +65,9 @@ function lcrPlayer(){
         <div id="player_poster">\
         </div>\
         <div id="current_info">\
-            <span id="player_title"></span>\
+            <span id="player_title" class="truncate"></span>\
             <span id="player_buffering" style="display:none;"><img src="res/loading_ring.svg"></span><br />\
-            <span id="player_nowplaying"></span>\
+            <span id="player_nowplaying" class="truncate"></span>\
         </div>\
     </div>';
     

@@ -148,7 +148,7 @@ iframe {
 
 #current_info {
   height: 70px;
-  float: left;
+  width: auto;
   margin-left: 10px;
   line-height: auto;
   font-size: 20px;

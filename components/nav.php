@@ -50,6 +50,9 @@
                 <li><a href="./about">About</a></li>
           </ul>
         </div>
-
+<div class="progress" id="loading-bar">
+            <div class="indeterminate"></div>
+        </div>
     </nav>
+    
 </div>

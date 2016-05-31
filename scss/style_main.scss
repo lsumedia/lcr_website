@@ -29,7 +29,17 @@ body {
 
 main{
     flex: 1 0 auto;
-    
+    margin-top: 2em;
+}
+
+#dynamic-main{
+    margin-top:2em;
+    transition:opacity 0.5s;
+}
+
+#loading-bar{
+    margin:0;
+    display:none;
 }
 
 
@@ -115,10 +125,6 @@ nav{
 
 .video-container{
     background-size:cover;
-}
-
-#main-content{
-    margin-top:2em;
 }
 
 #main-content-home{

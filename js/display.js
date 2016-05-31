@@ -153,9 +153,9 @@ function updateChannelList(){
                                 
                                 container.id = pane_id;
                                 container.className = "playlist-item z-depth-0 channel-pane";
+                                container.setAttribute('onclick', "pages.loadPage('video&play=-" + info['channelID'] + "');");
                                 
-                                var html = '<a href="./video?play=-' + info['channelID'] + '">\
-                                        <div class="row">\
+                                var html = '<div class="row">\
                                             <div class="col s4 responsive-video">\
                                                 <img src="' + info['poster'] + '" alt="Channel image" class="responsive-img left z-depth-1"/>\
                                             </div>\
@@ -163,8 +163,7 @@ function updateChannelList(){
                                                 <span class="black-text card-title">' + info['channel_name'] + '</span>\
                                                 <span class="grey-text truncate">' + info['title'] + '</span>\
                                                 <span class="grey-text truncate italic">' + ((info['nowplaying'])? info['nowplaying']: '') +'</span>\
-                                            </div>\
-                                    </a>';
+                                            </div>';
                                 
                                 if(document.getElementById(pane_id)){
                                     var pane = document.getElementById(pane_id);

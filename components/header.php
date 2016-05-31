@@ -29,6 +29,8 @@
 <script type="text/javascript" src="js/audio_player.js"></script>
 <link rel="stylesheet" href="css/audio_player.css" />
 
+<script type="text/javascript" src="js/dynamic_pages.js"></script>
+
 <!-- OpenGraph sitewide tags -->
 <meta property="og:title" content="<?= $pagetitle ?>" />
 <meta property="og:site_name" content="LSUTV" />

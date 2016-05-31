@@ -14,8 +14,9 @@
         <!-- Navigation section -->
         <?php require("components/nav.php"); ?>
         
-        <main id="dynamic-main">
-            
+       
+        
+        <main id="dynamic-main" class="container">
         </main>
         
         <noscript>
@@ -27,9 +28,11 @@
         <div id="iframe-container"></div>
         
         <script>
-            var player = new lcrPlayer();
+            var player = new audioPlayer();
+            
+            var pages = new dynamicPages('dynamic-main', player);
+            pages.loadPage('video&play=80');
             //player.load(-1);
-            player.load(-1);
         </script>
         
         <?php //require("components/footer.php"); ?>
