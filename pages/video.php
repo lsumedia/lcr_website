@@ -25,15 +25,21 @@ $playing = $play;
 
 $relatedtag = strtolower(end($tags));
 
-$pagetitle = "LSUTV - " . $content['title'];
+$pagetitle = "LCR- " . $content['title'];
 
+if($content['audioonly'] == true){
+    $onclick = "player.load($play);";
+}else{
+    $onclick = "player.replaceInner(this, $play, '$iframe_url')";
+}
 ?>
 
 <!-- Player & playlist -->
 <div class="row">
     <div class="col s12 l8">
-        <div id="player-container" class="z-depth-1 player-container <?= $content['type'] ?>-container">
-            <iframe class="player-inner <?= $content['type'] ?>" allowfullscreen src="<?= $iframe_url ?>"></iframe>
+        <div id="player-container" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
+            <div class="play-button"><i class="material-icons play-button-inner">play_arrow</i></div>
+            <img class="player-inner" src="<?= $content['poster'] ?>"/>
         </div>
         <div id="player-info" class="card z-depth-1">
             <div id="player-important" class="card-content">

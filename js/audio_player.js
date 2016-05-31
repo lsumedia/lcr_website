@@ -242,6 +242,12 @@ function audioPlayer(){
             });
     }
     
+    this.replaceInner = function(player_element, id, url){
+        this.hide();
+        this.contentId = id;
+        player_element.innerHTML = '<iframe class="player-inner" allowfullscreen src="' + url + '"></iframe>';
+    }
+    
     this.togglePlayPause = function(){
         if(this.paused() == true){
             this.play();

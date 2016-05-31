@@ -31,7 +31,7 @@
             var player = new audioPlayer();
             
             var pages = new dynamicPages('dynamic-main', player);
-            pages.loadPage('video&play=80');
+            pages.loadPage('video&play=-1');
             //player.load(-1);
         </script>
         
