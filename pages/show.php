@@ -163,7 +163,7 @@
         //If year is set => user selected a year, go to episode list
         if(isset($_GET['year'])){
         ?>
-        <script>
+        <script class="dynamic-script">
         $(document).ready(function(){
             //Scroll to episodes section
            location.hash = '#episodes';
