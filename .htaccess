@@ -1,1 +1,1 @@
-ErrorDocument 404 /projects/lcr/error.php
+ErrorDocument 404 /projects/lcr/?action=error

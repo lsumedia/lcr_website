@@ -39,7 +39,14 @@
             
             var pages = new dynamicPages('dynamic-main', player);
             pages.loadPage('<?= $action ?>');
-            //player.load(-1);
+            
+            //Load last page when back button is pressed
+            window.onpopstate = function(){
+                pages.loadPage(pages.getWindowAction(), 'back');
+            }
+            
+            //Warn user before leaving the site
+            window.onbeforeunload = "Leaving the page will stop media playback. Are you sure you want to continue?";
         </script>
         
         <?php //require("components/footer.php"); ?>
