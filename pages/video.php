@@ -37,7 +37,7 @@ if($content['audioonly'] == true){
 <!-- Player & playlist -->
 <div class="row">
     <div class="col s12 l8">
-        <div id="player-container" videoid="<?= $play ?>" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
+        <div id="player-container" audio="<?= $content['audioonly'] ?>" videoid="<?= $play ?>" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
             <div class="play-button"><i class="material-icons play-button-inner">play_arrow</i></div>
             <img class="player-inner" id="player-holding-image" src="<?= $content['poster'] ?>"/>
         </div>

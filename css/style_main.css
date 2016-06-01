@@ -26,6 +26,9 @@ main {
 .play-button-inner {
   font-size: 6rem; }
 
+#player-holding-image {
+  cursor: pointer; }
+
 a {
   color: inherit; }
 

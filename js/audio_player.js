@@ -46,7 +46,7 @@ function audioPlayer(){
     
     //Load HTML bits and pieces
     this.element.innerHTML = '<div class="row">\
-    <div id="player_left" class="col s6 l2">\
+    <div id="player_left" class="col s12 l2">\
         <div id="player_controls">\
             <i class="material-icons" id="rewind_button">fast_rewind</i>\
             <a class="play_button" id="play_button_container"><i class="material-icons" id="play_button">play_arrow</i></a>\
@@ -184,6 +184,7 @@ function audioPlayer(){
         //Clear description
         this.IframeTitle.innerHTML = '';
         this.IframeDescription.innerHTML = '';
+        //this.refreshContentInfo();
         var self = this;
         $.ajax({
                 url: request_url,
@@ -191,6 +192,7 @@ function audioPlayer(){
                 contentType: 'application/json',
                 success: function(data){
                     var info = JSON.parse(data);
+                    self.info = info;
                     
                     var audioOnly = true;
                     for(n in info['sources']){
@@ -223,13 +225,13 @@ function audioPlayer(){
                         this.playingVideo = true;
                     }
                     
-                    self.refreshContentInfo();
+                    self.setContentInfo(info);
                     
                     
                 }
             });
     }
-   
+   //Pull and set content info
     this.refreshContentInfo = function(){
         if(this.contentId > 0){
             var request_url =  publicphp + "?action=plugin_vod&id=" + this.contentId;
@@ -245,26 +247,29 @@ function audioPlayer(){
                     var self = $this; //Reference to player object
                     var info = JSON.parse(data);
                     self.info = info;
-                    self.title.innerHTML = info['title'];
-                    
-                    var f_onclick =  function(){ pages.loadPage('video&play=' + self.contentId); }
-                    self.title.onclick = f_onclick;
-                    self.posterElement.onclick = f_onclick;
-                    self.nowplaying.onclick = f_onclick;
-                    
-                    self.IframeTitle.innerHTML = info['title'];
-                    if(info['nowplaying']){
-                        self.nowplaying.innerHTML = info['nowplaying'];
-                    }else{
-                       self.nowplaying.innerHTML = '';
-                    }
-                    self.IframeDescription.innerHTML = info['description'];
-                    self.posterElement.style.backgroundImage = "url('" + info['poster'] + "')";
-                    console.log('Data refreshed');
-                    //Mini player data
-                    self.miniPlayer.style.backgroundImage = "url('" + info['poster'] + "')";
+                    self.setContentInfo(self.info);
                 }
             });
+    }
+    //Set content info based on video object
+    this.setContentInfo = function(info){
+        self.title.innerHTML = info['title'];      
+        var f_onclick =  function(){ pages.loadPage('video&play=' + self.contentId); }
+        self.title.onclick = f_onclick;
+        self.posterElement.onclick = f_onclick;
+        self.nowplaying.onclick = f_onclick;
+
+        self.IframeTitle.innerHTML = info['title'];
+        if(info['nowplaying']){
+            self.nowplaying.innerHTML = info['nowplaying'];
+        }else{
+           self.nowplaying.innerHTML = '';
+        }
+        self.IframeDescription.innerHTML = info['description'];
+        self.posterElement.style.backgroundImage = "url('" + info['poster'] + "')";
+        console.log('Data refreshed');
+        //Mini player data
+        self.miniPlayer.style.backgroundImage = "url('" + info['poster'] + "')";
     }
     
     this.replaceInner = function(player_element, id, url){

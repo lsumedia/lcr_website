@@ -49,8 +49,9 @@ function dynamicPages(element_id, player){
                     try{
                         var p_el = document.getElementById('player-container');
                         p_vid = p_el.getAttribute('videoid');
+                        p_audio = p_el.getAttribute('audio');
                         console.log(p_vid + ' = ' + self.player.contentId);
-                        if(parseInt(p_vid) == parseInt(self.player.contentId)){
+                        if(parseInt(p_vid) == parseInt(self.player.contentId) && p_audio){
                             self.player.loadMiniPlayer(p_el);
                         }
                     }catch(err){
