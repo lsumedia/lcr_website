@@ -2,8 +2,8 @@
 <ul id="more-dropdown" class="dropdown-content red-text">
     <li><a href="./blog">Blog</a></li>
   <li><a href="./about">About</a></li>
-  <li><a href="https://github.com/lsumedia/lsutv_website">GitHub</a></li>
-  <li><a href="//media.lsu.co.uk">LSU Media</a></li>
+  <li><a href="https://github.com/lsumedia/lcr_website" target="_blank">GitHub</a></li>
+  <li><a href="//media.lsu.co.uk" target="_blank">LSU Media</a></li>
 </ul>
 <!-- Dropdown for Shows button -->
 <ul id="cosec-dropdown" class="dropdown-content red-text">
