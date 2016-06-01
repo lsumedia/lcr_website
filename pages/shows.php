@@ -23,7 +23,7 @@
                            <!-- <p><?= count($matching)?> episode<?= (count($more['episodes']) == 1)? '' : 's' ;?></p> -->
                       </div>
                       <div class="card-action">
-                          <a href="./show?id=<?= $show['id'] ?>">Browse</a>
+                          <a href="javascript:void(0);" onclick="pages.loadPage('show&id=<?= $show['id'] ?>')">Browse</a>
                         </div>
                       <div class="card-reveal">
                           <span class="card-title grey-text text-darken-4"><?= $show['title'] ?><i class="material-icons right">close</i></span>
