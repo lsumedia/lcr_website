@@ -77,9 +77,23 @@ if($content['audioonly'] == true){
             $channels = json_decode(file_get_contents($api_url_c),true);
         ?>
         <div id="player-playlist">
-            <?php if($channels){ ?><h5 id="live-indicator">Live Now</h5><?php } ?>
+            <h5 id="live-indicator">Live Now</h5>
             <div id="channel-list">
-
+                
+                <?php foreach($channels as $channel){ ?>
+                <div id="channel_pane_<?= $channel['id'] ?>" class="playlist-item z-depth-0 channel-pane" onclick="pages.loadPage('video&play=-<?= $channel['id'] ?>')">
+                    <div class="row">
+                        <div class="col s4 responsive-video">                                                
+                            <img src="<?= $config['filler_image'] ?>" alt="Channel image" class="responsive-img left z-depth-1">                                   
+                        </div>                                            
+                        <div class="col s8">                                                
+                            <span class="black-text card-title"><?= $channel['title'] ?></span>                                                
+                            <span class="grey-text truncate"></span>                                                
+                            <span class="grey-text truncate italic"></span>                                            
+                        </div>
+                    </div>
+                </div>
+                <?php } ?>
             </div>
         <?php
 

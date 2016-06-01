@@ -6,15 +6,22 @@
             $pagename = "index";
             //Include config page
             require_once("config.php");
+            require_once("components/functions.php");
             //Include header
             require("components/header.php"); 
+
+            if(isset($_GET['action'])){
+                $action = encode_get_string();
+            }else{
+                $action = 'home';
+            }
+
         ?>
     </head>
     <body>
         <!-- Navigation section -->
         <?php require("components/nav.php"); ?>
         
-       
         
         <main id="dynamic-main" class="container">
         </main>
@@ -31,7 +38,7 @@
             var player = new audioPlayer();
             
             var pages = new dynamicPages('dynamic-main', player);
-            pages.loadPage('video&play=-1');
+            pages.loadPage('<?= $action ?>');
             //player.load(-1);
         </script>
         

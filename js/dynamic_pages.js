@@ -31,6 +31,8 @@ function dynamicPages(element_id, player){
                 type : 'GET',
                 success: function(data){
                     self.element.innerHTML = data;
+                    self.updateWindowHistory(action);
+                    window.scrollTo(0,0);
                     loading_bar.style.display = 'none';
                     self.enableDynamicContent();
                 }
@@ -49,5 +51,10 @@ function dynamicPages(element_id, player){
             eval(scripts[n].innerHTML);
         }
         console.log('Dynamic content reenabled');
+    }
+    
+    this.updateWindowHistory = function(action){
+        var code = '?action=' + action;
+        window.history.pushState('','',code);
     }
 }

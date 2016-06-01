@@ -18,7 +18,7 @@
         <!-- Desktop nav bar -->
         <div class="nav-wrapper" id="main-nav">
            <div class="container">
-                <a href="." class="brand-logo">
+                <a href="javascript:void(0);" class="brand-logo" onclick="pages.loadPage('home');">
                     <img src="res/lcr_white.png" alt="LSUTV Logo" id="tv-logo" class="left" />
                     <!-- <span>Loughborough Campus Radio</span> -->
                 </a>
