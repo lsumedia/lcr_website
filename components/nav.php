@@ -1,7 +1,7 @@
 <!-- Dropdown for More button -->
 <ul id="more-dropdown" class="dropdown-content red-text">
-    <li><a href="./blog">Blog</a></li>
-  <li><a href="./about">About</a></li>
+    <li><a href='javascript:void(0);' onclick="pages.loadPage('blog');">Blog</a></li>
+  <li><a href='javascript:void(0);' onclick="pages.loadPage('about');">About</a></li>
   <li><a href="https://github.com/lsumedia/lcr_website" target="_blank">GitHub</a></li>
   <li><a href="//media.lsu.co.uk" target="_blank">LSU Media</a></li>
 </ul>

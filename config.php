@@ -8,7 +8,7 @@ $config = [
     'featured_channel' => 11,
     
     /* Image to use if one is not found for video/show */
-    'filler_image' => 'http://media.lsu.co.uk/wp-content/uploads/2015/03/NaSTA-2015-LSUTV-Broadcaster1.jpg',
+    'filler_image' => 'http://smalldisasters.co.uk/live/radio/images/featured.png',
     
     'site_title' => "LCR",
     

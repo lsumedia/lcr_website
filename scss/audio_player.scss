@@ -4,7 +4,7 @@
     cameronsmall@lsu.co.uk
 */
 
-$pheight: 70px;
+$pheight: 65px;
 
 body {
   font-family: Roboto, sans-serif;
@@ -205,6 +205,26 @@ iframe {
 
 #player_duration{
     text-align:center;
+}
+
+/* Mini player styles */
+#player-mini{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    background-size: cover;
+}
+
+#player-mini-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2486c7;
+    color: white;
+    padding: 10px;
 }
 
 /* Seekbar styles */

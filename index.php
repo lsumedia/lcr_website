@@ -8,7 +8,9 @@
             require_once("config.php");
             require_once("components/functions.php");
             //Include header
-            require("components/header.php"); 
+            require_once("components/header.php"); 
+            //OpenGraph Data wrangler
+            require_once("components/opengraph.php");
 
             if(isset($_GET['action'])){
                 $action = encode_get_string();

@@ -28,7 +28,7 @@ $relatedtag = strtolower(end($tags));
 $pagetitle = "LCR- " . $content['title'];
 
 if($content['audioonly'] == true){
-    $onclick = "player.load($play);";
+    $onclick = "player.load($play); player.loadMiniPlayer(this);";
 }else{
     $onclick = "player.replaceInner(this, $play, '$iframe_url')";
 }
@@ -37,9 +37,9 @@ if($content['audioonly'] == true){
 <!-- Player & playlist -->
 <div class="row">
     <div class="col s12 l8">
-        <div id="player-container" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
+        <div id="player-container" videoid="<?= $play ?>" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
             <div class="play-button"><i class="material-icons play-button-inner">play_arrow</i></div>
-            <img class="player-inner" src="<?= $content['poster'] ?>"/>
+            <img class="player-inner" id="player-holding-image" src="<?= $content['poster'] ?>"/>
         </div>
         <div id="player-info" class="card z-depth-1">
             <div id="player-important" class="card-content">
@@ -160,6 +160,11 @@ if($content['audioonly'] == true){
     //Run JS to display channel panes
     updateChannelList();
     channel_timer = setInterval(function(){ updateChannelList(); }, 10000);
+</script>
+<script type="application/json" id="page-info">
+    {
+        "title" : "LCR - <?= $content['title'] ?>"
+    }
 </script>
 
       

@@ -10,6 +10,7 @@ function updateVideoInformation(json_url){
                     var subtitle = document.getElementById('player-subtitle');
                     var desc = document.getElementById('player-description'); 
                     var etags = document.getElementById('player-tags');
+                    var poster = document.getElementById('player-holding-image');
                     var info = JSON.parse(data);
                     title.innerHTML = info['title'];
                     if(info['nowplaying']){
@@ -18,7 +19,11 @@ function updateVideoInformation(json_url){
                         subtitle.innerHTML = "";
                     }
                     desc.innerHTML = info['description'];
-                    
+                    try{
+                        poster.src = info['poster'];
+                    }catch(err){
+                        console.log(err.message);
+                    }
                     etags.innerHTML = '';
                     var tagstring = info['tags'];
                     var taga = tagstring.split(' ');
@@ -109,12 +114,14 @@ function updateChannelPanes(){
                             }
                         }
                         
-                        if(isLive){
-                            pane.style.display = "block";
-                        }else{
-                            pane.style.display = "none";
+                        try{
+                            if(isLive){
+                                pane.style.display = "block";
+                            }else{
+                                pane.style.display = "none";
+                            }
+                        }catch(err){
                         }
-                        
                     }
                 }
             });
@@ -191,10 +198,13 @@ function updateChannelList(){
                             }
                         }
                         
-                        if(isLive){
-                            pane.style.display = "block";
-                        }else{
-                            pane.style.display = "none";
+                        try{
+                            if(isLive){
+                                pane.style.display = "block";
+                            }else{
+                                pane.style.display = "none";
+                            }
+                        }catch(err){
                         }
                         
                     }

@@ -37,9 +37,9 @@
 <meta property="og:locale" content="en_GB" />
 
 <!-- Theme colour for mobile users -->
-<meta name="theme-color" content="#EC2228">
-<meta name="msapplication-navbutton-color" content="#EC2228">
-<meta name="apple-mobile-web-app-status-bar-style" content="#EC2228">
+<meta name="theme-color" content="#2486c7">
+<meta name="msapplication-navbutton-color" content="#2486c7">
+<meta name="apple-mobile-web-app-status-bar-style" content="#2486c7">
 
 <meta name="viewport" content="width=device-width, user-scalable=no" />
 

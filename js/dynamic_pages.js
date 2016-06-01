@@ -12,9 +12,11 @@ function dynamicPages(element_id, player){
     //audioPlayer object used to play media
     this.player = player;
     
-    var loading_bar = document.getElementById('loading-bar');
+    this.loading_bar = document.getElementById('loading-bar');
     //Self reference
     var self = this;
+    
+    this.meta;
     
     //Load page with action string
     this.loadPageByActionName = function(action){
@@ -24,17 +26,36 @@ function dynamicPages(element_id, player){
     //Load page base function
     this.loadPage = function(action, history_mode){
         var page_url = 'ajax.php?action=' + action;
-        loading_bar.style.display = 'block';
+        this.loading_bar.style.display = 'block';
         console.log('Loading page ' + page_url);
         $.ajax({
                 url: page_url,
                 type : 'GET',
                 success: function(data){
                     self.element.innerHTML = data;
-                    self.updateWindowHistory(action, history_mode);
+                    self.meta = self.updatePageMeta();
                     window.scrollTo(0,0);
-                    loading_bar.style.display = 'none';
+                    self.loading_bar.style.display = 'none';
                     self.enableDynamicContent();
+                    try{
+                        self.updateWindowHistory(action, history_mode, self.meta['title']);
+                        document.title = self.meta['title'];
+                    }catch(err){
+                        console.log('Warning! Requested page is missing meta data');
+                        self.updateWindowHistory(action, history_mode, config['site_title']);
+                        document.title = config['site_title'];
+                    }
+                    
+                    try{
+                        var p_el = document.getElementById('player-container');
+                        p_vid = p_el.getAttribute('videoid');
+                        console.log(p_vid + ' = ' + self.player.contentId);
+                        if(parseInt(p_vid) == parseInt(self.player.contentId)){
+                            self.player.loadMiniPlayer(p_el);
+                        }
+                    }catch(err){
+                        console.log(err.message);
+                    }
                 }
             });
     }
@@ -53,13 +74,22 @@ function dynamicPages(element_id, player){
         console.log('Dynamic content reenabled');
     }
     
-    this.updateWindowHistory = function(action, history_mode){
+    this.updatePageMeta = function(){
+        try{
+            var data = JSON.parse(document.getElementById('page-info').innerHTML);
+            return data;
+        }catch(err){
+            console.log('Error fetching page info: '  + err.message);
+        }
+    }
+    
+    this.updateWindowHistory = function(action, history_mode, title){
         switch(history_mode){
             case 'back':
                 break;
             default:
                 var code = '?action=' + action;
-                window.history.pushState('','',code);
+                window.history.pushState('',title,code);
                 break;
         }
     }

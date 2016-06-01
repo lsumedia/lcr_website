@@ -90,6 +90,16 @@ function audioPlayer(){
         </div>\
         ';
     
+    //Mini player code
+    this.miniPlayer = document.createElement('div');
+    this.miniPlayer.id = 'player-mini';
+    this.miniPlayer.className = 'responsive-video';
+
+    this.miniTitle = document.createElement('div');
+    this.miniTitle.id = 'player-mini-bar';
+    this.miniTitle.innerHTML = "Playing";
+    this.miniPlayer.appendChild(this.miniTitle);
+    
     document.body.appendChild(this.element);
     document.body.appendChild(this.IframeElement);
     
@@ -118,6 +128,8 @@ function audioPlayer(){
     
     this.timer = setInterval(function(){ self.refreshContentInfo(); }, 10000);
     
+    //Current playing array
+    this.info;
     //DOM sections
     //Poster element
     this.posterElement = document.getElementById('player_poster');
@@ -232,6 +244,7 @@ function audioPlayer(){
                 success: function(data){
                     var self = $this; //Reference to player object
                     var info = JSON.parse(data);
+                    self.info = info;
                     self.title.innerHTML = info['title'];
                     
                     var f_onclick =  function(){ pages.loadPage('video&play=' + self.contentId); }
@@ -248,6 +261,8 @@ function audioPlayer(){
                     self.IframeDescription.innerHTML = info['description'];
                     self.posterElement.style.backgroundImage = "url('" + info['poster'] + "')";
                     console.log('Data refreshed');
+                    //Mini player data
+                    self.miniPlayer.style.backgroundImage = "url('" + info['poster'] + "')";
                 }
             });
     }
@@ -256,6 +271,12 @@ function audioPlayer(){
         this.hide();
         this.contentId = id;
         player_element.innerHTML = '<iframe class="player-inner" allowfullscreen src="' + url + '"></iframe>';
+    }
+    
+    this.loadMiniPlayer = function(elmini){
+        elmini.onclick = null;
+        elmini.innerHTML = '';
+        elmini.appendChild(self.miniPlayer);
     }
     
     this.togglePlayPause = function(){
