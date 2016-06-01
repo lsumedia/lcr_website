@@ -82,33 +82,37 @@ iframe {
   right: 0;
   background-color: #2486c7;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.12);
-  height: 70px;
   opacity: 0;
   transition: opacity 1s;
   /* Temporary value until JS activates it */
   /* display:none; */ }
+  .playerbar .row {
+    margin-bottom: 0; }
 
 #player_left, #player_centre, #player_right {
   height: 70px;
   overflow: hidden;
   color: white; }
 
+/*
 #player_left {
-  width: 10%;
-  float: left;
-  display: inline-block; }
+    width: 10%;
+    float:left;
+    display:inline-block;
+}
 
 #player_centre {
-  width: 64%;
-  padding: 0;
-  display: inline-block; }
+    width:64%;
+    padding: 0;
+    display:inline-block;
+}
 
-#player_right {
-  margin-left: 5px;
-  width: 25%;
-  float: right;
-  display: inline-block; }
-
+#player_right{
+    margin-left:5px;
+    width:25%;
+    float:right;
+    display:inline-block;
+}*/
 #player_poster {
   height: 60px;
   width: 106.66667px;
@@ -149,9 +153,7 @@ iframe {
 #current_info {
   height: 70px;
   width: auto;
-  margin-left: 10px;
-  line-height: auto;
-  font-size: 20px;
+  margin: 8px;
   white-space: nowrap; }
 
 #player_nowplaying {
@@ -178,7 +180,15 @@ iframe {
   margin-right: 8px; }
 
 #player_live {
-  font-size: 1.8em; }
+  font-size: 1.8em;
+  height: 70px;
+  line-height: 70px; }
+
+#player_elapsed {
+  text-align: center; }
+
+#player_duration {
+  text-align: center; }
 
 /* Seekbar styles */
 input[type=range] {

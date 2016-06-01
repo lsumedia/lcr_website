@@ -85,11 +85,15 @@ iframe {
   right: 0;
   background-color: #2486c7;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.12);
-  height: $pheight;
+  //height: $pheight;
   opacity: 0;
   transition: opacity 1s;
   /* Temporary value until JS activates it */
-  /* display:none; */ }
+  /* display:none; */ 
+  .row{
+      margin-bottom:0;
+  }
+}
 
 #player_left, #player_centre, #player_right{
     height:$pheight;
@@ -97,6 +101,7 @@ iframe {
     color: white;
 }
 
+/*
 #player_left {
     width: 10%;
     float:left;
@@ -114,7 +119,7 @@ iframe {
     width:25%;
     float:right;
     display:inline-block;
-}
+}*/
 
 #player_poster {
   height: $pheight - 10px;
@@ -156,9 +161,7 @@ iframe {
 #current_info {
   height: $pheight;
   width:auto;
-  margin-left:10px;
-  line-height: auto;
-  font-size: 20px;
+  margin:8px;
   white-space: nowrap; }
 
 #player_nowplaying{
@@ -186,7 +189,18 @@ iframe {
     margin-right:8px;
 }
 #player_live {
-    font-size:1.8em; }
+    font-size:1.8em; 
+    height:$pheight;
+    line-height:$pheight;
+}
+
+#player_elapsed{
+    text-align:center;
+}
+
+#player_duration{
+    text-align:center;
+}
 
 /* Seekbar styles */
 input[type=range] {

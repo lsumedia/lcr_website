@@ -45,31 +45,35 @@ function audioPlayer(){
     this.IframeElement.id = 'iframe-container';
     
     //Load HTML bits and pieces
-    this.element.innerHTML = '\
-    <div id="player_left">\
+    this.element.innerHTML = '<div class="row">\
+    <div id="player_left" class="col s6 l2">\
         <div id="player_controls">\
             <i class="material-icons" id="rewind_button">fast_rewind</i>\
             <a class="play_button" id="play_button_container"><i class="material-icons" id="play_button">play_arrow</i></a>\
             <i class="material-icons" id="forward_button">fast_forward</i>\
         </div>\
     </div>\
-    <div id="player_centre">\
-        <div id="player_seekbar">\
-            <div id="player_live" style="display:none;"><div class="circle"></div>Live</div>\
-            <input id="player_seekrange" type="range" min="0" max="1000" value="0" step="1">\
-            <style id="webkit_progress">input[type=range]::-webkit-slider-runnable-track { background: -webkit-linear-gradient(left, #EF5350 0%, #EF5350 0%, white 0%); }</style>\
+    <div id="player_centre" class="col s12 l6">\
+        <div id="player_live" style="display:none;"><div class="circle"></div>Live</div>\
+        <div class="row" id="player_time">\
+            <span id="player_elapsed" class="col s1">00:00</span>\
+            <div id="player_seekbar" class="col s10">\
+                <input id="player_seekrange" type="range" min="0" max="1000" value="0" step="1">\
+                <style id="webkit_progress">input[type=range]::-webkit-slider-runnable-track { background: -webkit-linear-gradient(left, #EF5350 0%, #EF5350 0%, white 0%); }</style>\
+            </div>\
+            <span id="player_duration" class="col s1">00:00</span>\
         </div>\
-        <div id="player_time"><span id="player_elapsed">00:00</span>/<span id="player_duration">00:00</div>\
     </div>\
-    <div id="player_right">\
-        <div id="player_poster">\
+    <div id="player_right" class="col s6 l4">\
+        <div class="row">\
+            <div id="player_poster" class="col s3">\
+            </div>\
+            <div id="current_info" class="col s9">\
+                <span id="player_title" class="truncate"><span id="player_buffering" style="display:none;"><img src="res/loading_ring.svg"></span></span>\
+                <span id="player_nowplaying" class="truncate"></span>\
+            </div>\
         </div>\
-        <div id="current_info">\
-            <span id="player_title" class="truncate"></span>\
-            <span id="player_buffering" style="display:none;"><img src="res/loading_ring.svg"></span><br />\
-            <span id="player_nowplaying" class="truncate"></span>\
-        </div>\
-    </div>';
+    </div></div>';
     
     this.element.className = 'playerbar';
     

@@ -27,7 +27,7 @@
                 </a>
                 <ul class="right hide-on-med-and-down">
                     <?php if($pagename != "search"){  ?>
-                    <li><a href="./search"><i class="material-icons left">search</i>Search</a></li>   
+                    <li><a href="javascript:void(0);" onclick="pages.loadPage('search');"><i class="material-icons left">search</i>Search</a></li>   
                     <?php } ?>
                     <!-- <li><a href="#!">Live</a></li> -->
                     <li><a class="dropdown-button" href='#!' data-activates="cosec-dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
@@ -38,7 +38,7 @@
             </div>
             <ul class="side-nav" id="mobile-nav">
                 <li><a href=".">Home</a></li>
-                <li><a href="./search">Search</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('search');">Search</a></li>
                 <li><a href="./shows">Shows</a></li>
                 <li class="divider"></li>
                  <li><a href="./search?term=entertainment">Entertainment</a></li>
