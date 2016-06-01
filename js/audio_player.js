@@ -233,6 +233,12 @@ function audioPlayer(){
                     var self = $this; //Reference to player object
                     var info = JSON.parse(data);
                     self.title.innerHTML = info['title'];
+                    
+                    var f_onclick =  function(){ pages.loadPage('video&play=' + self.contentId); }
+                    self.title.onclick = f_onclick;
+                    self.posterElement.onclick = f_onclick;
+                    self.nowplaying.onclick = f_onclick;
+                    
                     self.IframeTitle.innerHTML = info['title'];
                     if(info['nowplaying']){
                         self.nowplaying.innerHTML = info['nowplaying'];

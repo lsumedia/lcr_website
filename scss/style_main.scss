@@ -21,14 +21,13 @@
 
 $lcr_blue: #2486c7;
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+html{
+    
+    overflow-y:scroll;
 }
 
+
 main{
-    flex: 1 0 auto;
     margin-top: 2em;
 }
 

@@ -2,13 +2,10 @@
     Created on : 30-Apr-2016, 11:51:03
     Author     : Cameron Small
 */
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column; }
+html {
+  overflow-y: scroll; }
 
 main {
-  flex: 1 0 auto;
   margin-top: 2em; }
 
 #dynamic-main {

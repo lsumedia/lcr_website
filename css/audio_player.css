@@ -154,11 +154,15 @@ iframe {
   height: 70px;
   width: auto;
   margin: 8px;
+  cursor: pointer;
   white-space: nowrap; }
 
 #player_nowplaying {
   color: #D5D5D5;
   font-size: 0.9em; }
+
+#player_poster {
+  cursor: pointer; }
 
 #player_seekbar {
   height: 70px;

@@ -30,8 +30,8 @@
                     <li><a href="javascript:void(0);" onclick="pages.loadPage('search');"><i class="material-icons left">search</i>Search</a></li>   
                     <?php } ?>
                     <!-- <li><a href="#!">Live</a></li> -->
-                    <li><a class="dropdown-button" href='#!' data-activates="cosec-dropdown">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
-                    <li><a href='./shows'>Shows</a></li>
+                    <li><a href='javascript:void(0);' onclick="pages.loadPage('schedule');">Schedule</a></li>
+                    <li><a href='javascript:void(0);' onclick="pages.loadPage('shows');">Shows</a></li>
                     <!-- Dropdown Trigger -->
                     <li><a class="dropdown-button" href="#!" data-activates="more-dropdown">More<i class="material-icons right">arrow_drop_down</i></a></li>
                 </ul>

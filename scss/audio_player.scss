@@ -162,11 +162,16 @@ iframe {
   height: $pheight;
   width:auto;
   margin:8px;
+  cursor:pointer;
   white-space: nowrap; }
 
 #player_nowplaying{
     color:#D5D5D5;
     font-size:0.9em;
+}
+
+#player_poster{
+    cursor:pointer;
 }
 
 #player_seekbar {
@@ -345,7 +350,7 @@ input[type=range]::-ms-ticks {
     margin-left: 1em;
     margin-right: 1em; }
 
-  #player_poster {
+  #player_poster { 
     width: 80vw;
     height: 40vw;
     margin-left: auto;
