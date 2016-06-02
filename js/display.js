@@ -36,7 +36,7 @@ function updateVideoInformation(json_url){
                         if(taga[n].toString().length > 0){
                             var newtag = document.createElement('div');
                             newtag.className = "chip";
-                            newtag.innerHTML = '<a href="./search?term=' + taga[n] + '">' + taga[n] + '</a>';
+                            newtag.innerHTML = '<a href="javascript:void(0);" onclick="pages.loadPage(\'search&term=' + encodeURIComponent(taga[n]) + '\');">' + taga[n] + '</a>';
                             etags.appendChild(newtag);
                         }
                     }
