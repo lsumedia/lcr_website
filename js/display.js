@@ -35,6 +35,7 @@ function updateVideoInformation(json_url){
                             etags.appendChild(newtag);
                         }
                     }
+                    document.tile = 'LCR - ' + info['title'];
                     console.log('Data refreshed');
                 }
             });

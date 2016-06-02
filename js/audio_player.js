@@ -98,6 +98,10 @@ function audioPlayer(){
     this.miniTitle = document.createElement('div');
     this.miniTitle.id = 'player-mini-bar';
     this.miniTitle.innerHTML = "Playing";
+    
+    this.miniStatus = document.createElement('span');
+    this.miniStatus.style.float = "right";
+    this.miniTitle.appendChild(this.miniStatus);
     this.miniPlayer.appendChild(this.miniTitle);
     
     document.body.appendChild(this.element);
@@ -250,8 +254,10 @@ function audioPlayer(){
                     var info = JSON.parse(data);
                     self.info = info;
                     //Check if info is still valid
-                    if(this.contentId == currentRequestId){
+                    if(self.contentId == currentRequestId){
                         self.setContentInfo(self.info);
+                    }else{
+                        console.log("Old data for " + currentRequestId  + " received. " + self.contentId + " is active." );
                     }
                 }
             });
@@ -382,6 +388,7 @@ function audioPlayer(){
             self.seekBar.style.display = "none";
             self.liveLab.style.display = "block";
             self.timeLab.style.display = "none";
+            self.miniStatus.innerHTML = "Live";
             self.live = true;
         }else{
             var elapsed = self.AudioElement.currentTime;
@@ -404,6 +411,7 @@ function audioPlayer(){
             self.timeLab.style.display = "block";
             self.elapsedLab.innerHTML = niceTime(elapsed);
             self.durationLab.innerHTML = niceTime(duration);
+            self.miniStatus.innerHTML = niceTime(elapsed) + '/' + niceTime(duration);
             self.live = false;
         }
     }
