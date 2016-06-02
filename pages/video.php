@@ -55,7 +55,7 @@ if($content['audioonly'] == true){
                 <?php
                 if($is_vod){
                     ?>
-                <p id="player-date" class="">Posted on <?= $content['date'] ?></p>
+                <p id="player-date" class=""><?= nice_date($content['date']) ?></p>
                     <?php
                 }
                 ?>
@@ -129,7 +129,7 @@ if($content['audioonly'] == true){
                         <span class="black-text card-title">
                           <?= $result['title'] ?>
                         </span>
-                        <span class="grey-text truncate"><?= $result['date'] ?></span>
+                        <span class="grey-text truncate"><?= nice_date($result['date']) ?></span>
                     </div>
 
                 </div>

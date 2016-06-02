@@ -1,6 +1,9 @@
 <?php
 
-
+/**
+ * Re-encodes get variables in a string compatible with pages.loadPage()
+ * @return type
+ */
 function encode_get_string(){
     $string = $_GET['action'];
     
@@ -12,6 +15,10 @@ function encode_get_string(){
     return $string;
 }
 
+/**
+ * Returns true if user is on a mobile device
+ * @return boolean
+ */
 function on_mobile(){
     $useragent=$_SERVER['HTTP_USER_AGENT'];
 
@@ -22,4 +29,13 @@ function on_mobile(){
     
     return false;
 
+}
+
+/**
+ * Converts date in YYYY-MM-DD format to a nicer string
+ * @param type $datestring
+ */
+function nice_date($datestring){
+    $timestamp = strtotime($datestring);
+    return date('jS F Y', $timestamp);
 }
