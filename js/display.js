@@ -13,6 +13,11 @@ function updateVideoInformation(json_url){
                     var poster = document.getElementById('player-holding-image');
                     var info = JSON.parse(data);
                     title.innerHTML = info['title'];
+                    if(info['show']){
+                        var show = info['show'];
+                        title.innerHTML += '&nbsp;<i class="material-icons pointer" onclick="pages.loadPage(\'show&id=' + show['id'] + '\');">video_library</i>';
+                        console.log(show['title']);
+                    }
                     if(info['nowplaying']){
                         subtitle.innerHTML = info['nowplaying'];
                     }else{

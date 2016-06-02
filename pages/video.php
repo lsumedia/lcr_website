@@ -37,10 +37,16 @@ if($content['audioonly'] == true){
 <!-- Player & playlist -->
 <div class="row">
     <div class="col s12 l8">
+        <?php if(on_mobile()){ ?>
+        <div id="player-container" class="z-depth-1 player-container <?= $content['type'] ?>-container">
+            <iframe class="player-inner <?= $content['type'] ?>" allowfullscreen src="<?= $iframe_url ?>"></iframe>
+        </div>
+        <?php }else { ?>
         <div id="player-container" audio="<?= $content['audioonly'] ?>" videoid="<?= $play ?>" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
             <div class="play-button"><i class="material-icons play-button-inner">play_arrow</i></div>
             <img class="player-inner" id="player-holding-image" src="<?= $content['poster'] ?>"/>
         </div>
+        <?php } ?>
         <div id="player-info" class="card z-depth-1">
             <div id="player-important" class="card-content">
                 <div id="player-channel-title"><?= $content['channel_name'] ?></div>

@@ -117,6 +117,7 @@ function audioPlayer(){
     this.playOnLoad = true;
     //HTML5 Audio Element
     this.AudioElement = new Audio();
+    //this.AudioElement = document.createElement('video');
     //IFrame Elements
     this.IframeBackdrop = document.getElementById('iframe_backdrop');
     this.IframeInfo = document.getElementById('iframe_info');
