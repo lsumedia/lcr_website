@@ -106,10 +106,10 @@ if($content['audioonly'] == true){
         $related = json_decode(file_get_contents($config['publicphp'] . '?action=plugin_vod&limit=7&tag=' . $relatedtag),true);
 
         if(count($related) > 1 && strlen($relatedtag) > 0){
-            $rtitle = "Related videos";
+            $rtitle = "More episodes";
         }else{
             $related = json_decode(file_get_contents($config['publicphp'] . '?action=plugin_vod&limit=7&list'),true);
-            $rtitle = "Recent videos";
+            $rtitle = "Recent shows & videos";
         }
 
         ?>
@@ -166,6 +166,20 @@ if($content['audioonly'] == true){
     //Run JS to display channel panes
     updateChannelList();
     channel_timer = setInterval(function(){ updateChannelList(); }, 10000);
+</script>
+<script class="exit-script">
+    try{
+        clearInterval(infotimer);
+        infotimer = null;
+    }catch(err){
+        console.log(err.message);
+    }
+    try{
+        clearInterval(channel_timer);
+        channel_timer = null;
+    }catch(err){
+        console.log(err.message);
+    }
 </script>
 <script type="application/json" id="page-info">
     {

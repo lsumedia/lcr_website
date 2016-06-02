@@ -14,5 +14,8 @@ $config = [
     
     'site_welcome' => 'Welcome to LCR',
     
-    'site_description' => "LSUTV is the student television station of Loughborough University and is a part of the LSU Media section."
+    'site_description' => "LSUTV is the student television station of Loughborough University and is a part of the LSU Media section.",
+    
+    //Homepage cover image
+    'cover_image' => 'http://media.lsu.co.uk/wp-content/uploads/2015/04/2767463990_d3317f4cb1_o.jpg'
 ];

@@ -29,13 +29,3 @@
     </div>
 </footer>
 
-<!-- UI Scripts -->
-<script>
-    $(document).ready(function(){
-        $('select').material_select();
-        $(".dropdown-button").dropdown();
-        $(".button-collapse").sideNav();
-        $('.slider').slider({full_width: true});
-        $('.parallax').parallax();
-    });
-</script>

@@ -189,6 +189,8 @@ function audioPlayer(){
         //Clear description
         this.IframeTitle.innerHTML = '';
         this.IframeDescription.innerHTML = '';
+        //Show player to reassure user
+        this.show();
         //this.refreshContentInfo();
         var self = this;
         $.ajax({

@@ -20,6 +20,14 @@ main {
   margin: 0;
   display: none; }
 
+.header-image {
+  height: 280px;
+  background-size: cover;
+  background-position: center; }
+
+.header-image h4 {
+  padding: 10px; }
+
 .play-button {
   position: absolute;
   z-index: 10;
@@ -72,6 +80,9 @@ nav {
 #main-nav {
   background-color: transparent;
   z-index: 50; }
+
+#sidenav-overlay {
+  z-index: 49; }
 
 .navbar-fixed {
   z-index: 50; }

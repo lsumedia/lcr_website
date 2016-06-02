@@ -39,15 +39,15 @@
             <ul class="side-nav" id="mobile-nav">
                 <li><a href=".">Home</a></li>
                 <li><a href="javascript:void(0);" onclick="pages.loadPage('search');">Search</a></li>
-                <li><a href="./shows">Shows</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('shows');">Shows</a></li>
                 <li class="divider"></li>
-                 <li><a href="./search?term=entertainment">Entertainment</a></li>
-                <li><a href="./search?term=news">News</a></li>
-                <li><a href="./search?term=music">Music</a></li>
-                <li><a href="./search?term=sport">Sport</a></li>
+                 <li><a href="javascript:void(0);" onclick="pages.loadPage('search&term=entertainment');">Entertainment</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('search&term=news');">News</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('search&term=music');">Music</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('search&term=sport');">Sport</a></li>
                 <li class="divider"></li>
-                <li><a href="./blog">Blog</a></li>
-                <li><a href="./about">About</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('blog');">Blog</a></li>
+                <li><a href="javascript:void(0);" onclick="pages.loadPage('about');">About</a></li>
           </ul>
         </div>
 <div class="progress" id="loading-bar">
@@ -56,3 +56,14 @@
     </nav>
     
 </div>
+
+<!-- UI Scripts -->
+<script>
+    $(document).ready(function(){
+        $('select').material_select();
+        $(".dropdown-button").dropdown();
+        $(".button-collapse").sideNav();
+        $('.slider').slider({full_width: true});
+        $('.parallax').parallax();
+    });
+</script>

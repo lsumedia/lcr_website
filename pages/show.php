@@ -164,6 +164,7 @@
         if(isset($_GET['year'])){
         ?>
         <script class="dynamic-script">
+            /*
         $(document).ready(function(){
             //Scroll to episodes section
            location.hash = '#episodes';
@@ -171,7 +172,7 @@
             //Compensate for navbar - only if there are >4 episodes
            setTimeout(function(){ window.scrollBy(0,-50); }, 1);
            <?php } ?>
-       });
+       }); */
         </script>
          <?php
         }

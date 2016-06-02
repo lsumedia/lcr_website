@@ -28,6 +28,7 @@ function dynamicPages(element_id, player){
         var page_url = 'ajax.php?action=' + action;
         this.loading_bar.style.display = 'block';
         console.log('Loading page ' + page_url);
+        this.runExitScript();
         $.ajax({
                 url: page_url,
                 type : 'GET',
@@ -50,7 +51,6 @@ function dynamicPages(element_id, player){
                         var p_el = document.getElementById('player-container');
                         p_vid = p_el.getAttribute('videoid');
                         p_audio = p_el.getAttribute('audio');
-                        console.log(p_vid + ' = ' + self.player.contentId);
                         if(parseInt(p_vid) == parseInt(self.player.contentId) && p_audio){
                             self.player.loadMiniPlayer(p_el);
                         }
@@ -73,6 +73,14 @@ function dynamicPages(element_id, player){
             eval(scripts[n].innerHTML);
         }
         console.log('Dynamic content reenabled');
+    }
+    
+    this.runExitScript = function(){
+        var scripts = document.getElementsByClassName('exit-script');
+        for(n in scripts){
+            eval(scripts[n].innerHTML);
+        }
+        console.log('Executed page exit script');
     }
     
     this.updatePageMeta = function(){

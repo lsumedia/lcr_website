@@ -1,4 +1,12 @@
 <div class="row">
+    <div class="col s12">
+        <div class="z-depth-1 pointer header-image white-text" style="background-image:url('<?= $config['cover_image'] ?>');" onclick="player.load(-1)">
+            <h4 class='card-title'>Listen Live</h4>
+        </div>
+    </div>
+</div>
+
+<div class="row">
     <div class="col s12 l8">
         <div class="video-container">
             <ul>
