@@ -233,6 +233,8 @@ function audioPlayer(){
     }
    //Pull and set content info
     this.refreshContentInfo = function(){
+        //Locally scoped copy of contentId
+        var currentRequestId = this.contentId;
         if(this.contentId > 0){
             var request_url =  publicphp + "?action=plugin_vod&id=" + this.contentId;
         }else{
@@ -247,7 +249,10 @@ function audioPlayer(){
                     var self = $this; //Reference to player object
                     var info = JSON.parse(data);
                     self.info = info;
-                    self.setContentInfo(self.info);
+                    //Check if info is still valid
+                    if(this.contentId == currentRequestId){
+                        self.setContentInfo(self.info);
+                    }
                 }
             });
     }
