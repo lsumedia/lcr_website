@@ -93,7 +93,7 @@ function audioPlayer(){
     //Mini player code
     this.miniPlayer = document.createElement('div');
     this.miniPlayer.id = 'player-mini';
-    this.miniPlayer.className = 'responsive-video';
+    this.miniPlayer.className = 'responsive-video pointer';
 
     this.miniTitle = document.createElement('div');
     this.miniTitle.id = 'player-mini-bar';
@@ -432,7 +432,7 @@ function audioPlayer(){
     /* Button event listeners */
     
     this.playBtn.addEventListener("click", function(){ self.togglePlayPause(); } );
-    this.miniButton.addEventListener("click", function(){ self.togglePlayPause();} );
+    this.miniPlayer.addEventListener("click", function(){ self.togglePlayPause();} );
     this.rrBtn.addEventListener("click", function(){ self.rewind(); } );
     this.ffBtn.addEventListener("click", function(){ self.ff(); });
     
