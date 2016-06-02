@@ -65,5 +65,9 @@
         $(".button-collapse").sideNav();
         $('.slider').slider({full_width: true});
         $('.parallax').parallax();
+        //Disable scroll on space bar
+        window.onkeydown = function(e) { 
+            return !(e.keyCode == 32);
+        };
     });
 </script>

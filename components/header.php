@@ -33,9 +33,9 @@
 
 <!-- OpenGraph sitewide tags -->
 <meta property="og:title" content="<?= $pagetitle ?>" />
-<meta property="og:site_name" content="LSUTV" />
+<meta property="og:site_name" content="<?= $config['site_title'] ?>" />
 <meta property="og:locale" content="en_GB" />
-
+<meta property="og:image" content="<?= $config['filler_image'] ?>" />
 <!-- Theme colour for mobile users -->
 <meta name="theme-color" content="#2486c7">
 <meta name="msapplication-navbutton-color" content="#2486c7">
