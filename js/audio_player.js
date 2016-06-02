@@ -97,11 +97,18 @@ function audioPlayer(){
 
     this.miniTitle = document.createElement('div');
     this.miniTitle.id = 'player-mini-bar';
-    this.miniTitle.innerHTML = "Playing";
+    
+    this.miniButton = document.createElement('i');
+    this.miniButton.id ='player-mini-play';
+    this.miniButton.className = "material-icons white-text pointer";
+    this.miniButton.style.float = "left";
+    this.miniButton.innerHTML = 'play_arrow';
+    this.miniTitle.appendChild(this.miniButton);
     
     this.miniStatus = document.createElement('span');
     this.miniStatus.style.float = "right";
     this.miniTitle.appendChild(this.miniStatus);
+    
     this.miniPlayer.appendChild(this.miniTitle);
     
     document.body.appendChild(this.element);
@@ -313,11 +320,13 @@ function audioPlayer(){
     this.play = function(){
         this.AudioElement.play();
         this.playBtn.innerHTML = 'pause';
+        this.miniButton.innerHTML = 'pause';
     }
     
     this.pause = function(){
         this.AudioElement.pause();
         this.playBtn.innerHTML = 'play_arrow';
+        this.miniButton.innerHTML = 'play_arrow';
     }
     
     this.rewind = function(){
@@ -423,6 +432,7 @@ function audioPlayer(){
     /* Button event listeners */
     
     this.playBtn.addEventListener("click", function(){ self.togglePlayPause(); } );
+    this.miniButton.addEventListener("click", function(){ self.togglePlayPause();} );
     this.rrBtn.addEventListener("click", function(){ self.rewind(); } );
     this.ffBtn.addEventListener("click", function(){ self.ff(); });
     
