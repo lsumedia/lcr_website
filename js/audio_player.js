@@ -173,6 +173,8 @@ function audioPlayer(){
     this.seeking = false;
     //Whether current content is a live stream
     this.live = false;
+    //Whether the player is visible
+    this.visible = false;
     
     /* DISPLAY PLAYER */
     /* Now done inside load function
@@ -348,11 +350,13 @@ function audioPlayer(){
     this.hide = function(){
         this.pause();
         this.element.style.opacity = '';
+        this.visible = false;
         setTimeout(function(){ self.element.style.display = ''}, 1000)
     }
     
     this.show = function(){
         this.element.style.display = 'block';
+        this.visible = true;
         setTimeout(function(){ self.element.style.opacity = 1; }, 10)
     }
     
@@ -480,7 +484,7 @@ function audioPlayer(){
     
     document.body.onkeyup = function(e){
         if(e.keyCode == 32){
-            self.togglePlayPause();
+            if(self.visible) self.togglePlayPause();
         }
     }
     
