@@ -81,24 +81,26 @@ if(audio_only($content) == true){
         if($play > 0 && $config['disqus_name']){ 
         ?>
         <!-- Comments section -->
-        <div class="card z-depth-1 pad">
-            <div id="disqus_thread"></div> 
-            <script class="dynamic-script">
-            var disqus_config = function () { 
-                this.page.url = "<?= $config['site_root'] ?>/?action=video&play=<?= $play ?>"; 
-                // Replace PAGE_URL with your page's canonical URL variable 
-                this.page.identifier = <?= $play ?>; 
-                //Replace PAGE_IDENTIFIER with your page's unique identifier variable 
-                }; 
-            (function() { 
-                var d = document, 
-                s = d.createElement('script'); 
-                s.src = '//<?= $config['disqus_name'] ?>.disqus.com/embed.js'; 
-                s.setAttribute('data-timestamp', +new Date()); 
-                (d.head || d.body).appendChild(s); })(); 
-            </script> 
-            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+        <div class="card z-depth-1">
+            <div class="card-content">
+                <div id="disqus_thread"></div> 
+                <script class="dynamic-script">
+                var disqus_config = function () { 
+                    this.page.url = "<?= $config['site_root'] ?>/?action=video&play=<?= $play ?>"; 
+                    // Replace PAGE_URL with your page's canonical URL variable 
+                    this.page.identifier = <?= $play ?>; 
+                    //Replace PAGE_IDENTIFIER with your page's unique identifier variable 
+                    }; 
+                (function() { 
+                    var d = document, 
+                    s = d.createElement('script'); 
+                    s.src = '//<?= $config['disqus_name'] ?>.disqus.com/embed.js'; 
+                    s.setAttribute('data-timestamp', +new Date()); 
+                    (d.head || d.body).appendChild(s); })(); 
+                </script> 
+                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
             </div>
+        </div>
         <?php }else if($play < 0 && intval($content['schedule_id'])){ 
                 $api_url_s = $config['publicphp'] . "?action=schedule&request=upcoming&schedule_id=" . $content['schedule_id'] . "&before=" . (time() + (60*60*24*3));
                 //echo $api_url_s;
@@ -108,7 +110,7 @@ if(audio_only($content) == true){
         <div class="card z-depth-1">
             <div class="card-content">
                 <span class="card-title">Upcoming shows</span>
-                <table>
+                <table class="bordered">
             <?php
                 
                 $limit = 5;
@@ -116,13 +118,20 @@ if(audio_only($content) == true){
                     $schedule_item = $schedule_data[$i];
                     $ashow = $schedule_item['show'];
             ?>
-                    <tr>
-                        <td><?= $ashow['title'] ?></td>
-                        <td><?= $schedule_item['niceTime'] ?></td>
+                    <tr onclick="pages.loadPage('show&id=<?= $ashow['id'] ?>')" class="pointer">
+                        <td>
+                            <img src="<?= ($ashow['poster_url'])? $ashow['poster_url']: $config['filler_image'] ?>" alt="" style="width:100px;" class="left z-depth-1">
+                        </td>
+                        <td>
+                            <span class="black-text card-title"><?= $ashow['title'] ?></span>
+                        </td>
+                        <td>
+                            <span class="grey-text truncate"><?= $schedule_item['niceTime'] ?></span>
+                        </td>
                     </tr>
                 <?php } ?>
                 </table>
-                <span class="pointer" onclick="pages.loadPage('schedule');">See full schedule</span>
+                <div style="margin-top:1rem;" onclick="pages.loadPage('schedule');">See full schedule</div>
             </div>
         </div>
         <?php }} ?>
