@@ -18,10 +18,20 @@
         <!-- Desktop nav bar -->
         <div class="nav-wrapper" id="main-nav">
            <div class="container">
-                <a href="javascript:void(0);" class="brand-logo" onclick="pages.loadPage('home');">
-                    <img src="res/lcr_white.png" alt="LSUTV Logo" id="tv-logo" class="left" />
+                <a class="brand-logo"  class="left">
+                    
+                        <img src="res/lcr_white.png" class="nav-logo pointer" onclick="pages.loadPage('home');" alt="LCR Logo" id="lcr-logo" />
+                    
+                    <span id="other-logos" class="left">
+                        <img class="nav-logo pointer" onclick="window.open('/projects/lsutv');"src="res/lsutv_white.png" alt="LCR Logo" id="tv-logo" class="left" />
+                        <img src="res/lens_white.png" class="nav-logo pointer" alt="Lens Logo" id="tv-logo" class="left" />
+                        <img src="res/label_white.png" class="nav-logo pointer" alt="Label Logo" id="tv-logo" class="left" />
+                    </span>
                     <!-- <span>Loughborough Campus Radio</span> -->
                 </a>
+               <div class="other-logos" class="left">
+                   
+               </div>
                 <a class="hide-on-large-only button-collapse" data-activates="mobile-nav">
                     <i class="material-icons">menu</i>
                 </a>

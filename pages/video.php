@@ -73,7 +73,36 @@ if(audio_only($content) == true){
 
                 <div id="player-description"><?= $content['description'] ?></div>
             </div>
-           </div>
+        </div>
+        
+        
+        <?php 
+        /* Comments (VOD) or schedule (Live) */
+        if($play > 0){ 
+        ?>
+        <!-- Comments section -->
+        <div class="card z-depth-1 pad">
+            <div id="disqus_thread"></div> 
+            <script class="dynamic-script">
+            var disqus_config = function () { 
+                this.page.url = "<?= $config['site_root'] ?>/?action=video&play=<?= $play ?>"; 
+                // Replace PAGE_URL with your page's canonical URL variable 
+                this.page.identifier = <?= $play ?>; 
+                //Replace PAGE_IDENTIFIER with your page's unique identifier variable 
+                }; 
+            (function() { 
+                var d = document, 
+                s = d.createElement('script'); 
+                s.src = '//<?= $config['disqus_name'] ?>.disqus.com/embed.js'; 
+                s.setAttribute('data-timestamp', +new Date()); 
+                (d.head || d.body).appendChild(s); })(); 
+            </script> 
+            <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+            </div>
+        <?php }else{ ?>
+        
+        <?php } ?>
+        
     </div>
 
     <!-- Related/live videos section -->
@@ -167,6 +196,17 @@ if(audio_only($content) == true){
     updateChannelList();
     channel_timer = setInterval(function(){ updateChannelList(); }, 10000);
 </script>
+<!-- Facebook comments activator -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6&appId=<?= $config['fb_appId'] ?>";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
 <script class="exit-script">
     try{
         clearInterval(infotimer);

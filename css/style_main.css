@@ -58,6 +58,9 @@ iframe {
 .italic {
   font-style: italic; }
 
+.pad {
+  padding: 1rem; }
+
 .dropdown-content li > a, .dropdown-content li > span {
   color: #2486c7; }
 
@@ -97,9 +100,24 @@ nav {
   width: 100%;
   color: white; }
 
-#tv-logo {
+.nav-logo {
   height: 48px;
   margin: 8px; }
+
+#other-logos {
+  width: 0;
+  display: inline-block;
+  overflow: hidden;
+  transition: width 1s; }
+
+#other-logos:hover {
+  width: 310px; }
+
+#lcr-logo {
+  float: left; }
+
+#lcr-logo:hover + #other-logos {
+  width: 310px; }
 
 .video-container {
   background-size: cover; }

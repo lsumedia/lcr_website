@@ -45,7 +45,8 @@ function audioPlayer(){
     this.IframeElement.id = 'iframe-container';
     
     //Load HTML bits and pieces
-    this.element.innerHTML = '<div class="row">\
+    this.element.innerHTML = '<div id="player_loading" class="progress"><div class="indeterminate"></div></div>\
+<div class="row">\
     <div id="player_left" class="col s12 l2">\
         <div id="player_controls">\
             <i class="material-icons" id="rewind_button">fast_rewind</i>\
@@ -163,7 +164,7 @@ function audioPlayer(){
     this.timeLab = document.getElementById('player_time');
     this.elapsedLab = document.getElementById('player_elapsed');
     this.durationLab = document.getElementById('player_duration');
-    this.bufferLab = document.getElementById('player_buffering');
+    this.bufferLab = document.getElementById('player_loading');
     
     //Reference to self for event listener usage
     var self = this;
@@ -455,7 +456,7 @@ function audioPlayer(){
     
     this.AudioElement.addEventListener('waiting', function(){
        //Mobile function - change pause buttons when player is paused by browser
-       self.bufferLab.style.display = 'inline'; 
+       self.bufferLab.style.display = 'block'; 
     });
     
     this.AudioElement.addEventListener('timeupdate', function(){

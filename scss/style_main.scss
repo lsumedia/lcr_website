@@ -44,6 +44,9 @@ main{
 #loading-bar{
     margin:0;
     display:none;
+    .indeterminate{
+        
+    }
 }
 
 .header-image{
@@ -94,6 +97,10 @@ iframe{
     font-style:italic;
 }
 
+.pad{
+    padding:1rem;
+}
+
 .dropdown-content li > a, .dropdown-content li > span{
     color:$lcr_blue;
 }
@@ -137,10 +144,6 @@ nav{
     height:64px;
 }
 
-#search-container{
-    //background-color:#EC2228;
-}
-
 #show-title{
     bottom: 0;
     position: absolute;
@@ -149,9 +152,27 @@ nav{
     color:white;
 }
 
-#tv-logo{
+.nav-logo{
     height:48px;
     margin:8px;
+}
+
+$other_logo_width: 310px;
+#other-logos{
+    width:0;
+    display:inline-block;
+    overflow:hidden;
+    transition:width 1s;
+}
+#other-logos:hover{
+    width:$other_logo_width;
+}
+
+#lcr-logo{
+    float:left;
+}
+#lcr-logo:hover + #other-logos{
+    width:$other_logo_width;
 }
 
 .video-container{
@@ -160,10 +181,6 @@ nav{
 
 #main-content-home{
     margin-top:100vh;
-}
-
-#welcome-screen{
-    
 }
 
 #slide-container{

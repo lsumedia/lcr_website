@@ -175,6 +175,9 @@ iframe {
 #player_buffering img {
   height: 1em; }
 
+#player_loading {
+  margin: 0; }
+
 .circle {
   height: 18px;
   width: 18px;

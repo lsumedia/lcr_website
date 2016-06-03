@@ -5,6 +5,9 @@
 */
 
 $pheight: 65px;
+$lcr_blue: #2486c7;
+$lsu_pink: pink;
+$lsu_purple: #4a1863;
 
 body {
   font-family: Roboto, sans-serif;
@@ -83,7 +86,7 @@ iframe {
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #2486c7;
+  background-color: $lcr_blue;
   box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.12);
   //height: $pheight;
   opacity: 0;
@@ -185,6 +188,14 @@ iframe {
 #player_buffering img {
   height: 1em; }
 
+#player_loading{
+    margin:0;
+    .indeterminate{
+        //background-color:#FF1744;
+        //background-color: #4a1863;
+    }
+}
+
 .circle{
     height:18px;
     width:18px;
@@ -222,7 +233,7 @@ iframe {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #2486c7;
+    background-color: $lcr_blue;
     color: white;
     padding: 10px;
 }
