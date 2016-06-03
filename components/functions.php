@@ -39,3 +39,13 @@ function nice_date($datestring){
     $timestamp = strtotime($datestring);
     return date('jS F Y', $timestamp);
 }
+
+function audio_only($video){
+    $audioonly = true;
+    foreach($video['sources'] as $source){
+        if(stripos($source['type'],'audio') === false){
+            $audioonly = false;
+        }
+    }
+    return $audioonly;
+}

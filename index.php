@@ -32,9 +32,6 @@
         <h4>Error: JavaScript not enabled</h4>
         </noscript>
         
-        <div id="player-container"></div>
-        
-        <div id="iframe-container"></div>
         
         <script>
             var player = new audioPlayer();

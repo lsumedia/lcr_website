@@ -27,7 +27,7 @@ $relatedtag = strtolower(end($tags));
 
 $pagetitle = "LCR- " . $content['title'];
 
-if($content['audioonly'] == true){
+if(audio_only($content) == true){
     $onclick = "player.load($play); player.loadMiniPlayer(this);";
 }else{
     $onclick = "player.replaceInner(this, $play, '$iframe_url')";

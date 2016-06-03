@@ -1,0 +1,15 @@
+Todo
+
+Minor, high priority:
+"Blog" page
+
+Major, high priority:
+Home page
+Mobile compatibility
+"About" page
+OpenGraph data
+
+Minor, low priority:
+
+Major, low priority:
+Playlists
