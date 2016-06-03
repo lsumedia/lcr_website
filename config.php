@@ -25,6 +25,6 @@ $config = [
     /* Facebook app ID */
     'fb_appId' => '186372988065004',
     
-    /* Disqus site name */
+    /* Disqus wesbite shortname */
     'disqus_name' => 'smalldisasters'
 ];

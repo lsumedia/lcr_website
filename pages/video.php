@@ -78,7 +78,7 @@ if(audio_only($content) == true){
         
         <?php 
         /* Comments (VOD) or schedule (Live) */
-        if($play > 0){ 
+        if($play > 0 && $config['disqus_name']){ 
         ?>
         <!-- Comments section -->
         <div class="card z-depth-1 pad">
@@ -99,8 +99,30 @@ if(audio_only($content) == true){
             </script> 
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
             </div>
-        <?php }else{ ?>
+        <?php }else if($play < 0 && $content['schedule_id']){ ?>
         
+        <div class="card z-depth-1">
+            <div class="card-content">
+                <span class="card-title">Upcoming shows</span>
+                <table>
+            <?php
+                $api_url_s = $config['publicphp'] . "?action=schedule&request=upcoming&schedule_id=" . $content['schedule_id'] . "&before=" . (time() + (60*60*24*3));
+                //echo $api_url_s;
+                $schedule_data = json_decode(file_get_contents($api_url_s),true);
+                $limit = 5;
+                for($i = 0; $i <= 5; $i++){
+                    $schedule_item = $schedule_data[$i];
+                    $ashow = $schedule_item['show'];
+            ?>
+                    <tr>
+                        <td><?= $ashow['title'] ?></td>
+                        <td><?= $schedule_item['niceTime'] ?></td>
+                    </tr>
+                <?php } ?>
+                </table>
+                <span class="pointer" onclick="pages.loadPage('schedule');">See full schedule</span>
+            </div>
+        </div>
         <?php } ?>
         
     </div>
