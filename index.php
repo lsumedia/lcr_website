@@ -46,6 +46,16 @@
             
             //Warn user before leaving the site
             window.onbeforeunload = "Leaving the page will stop media playback. Are you sure you want to continue?";
+            
+            //Override 
+            document.onclick = function (e) {
+                e = e ||  window.event;
+                var element = e.target || e.srcElement;
+
+                if (element.tagName == 'A') {
+                  someFunction(element.href);
+                  return false; // prevent default action and stop event propagation
+                }
         </script>
         
         <?php //require("components/footer.php"); ?>

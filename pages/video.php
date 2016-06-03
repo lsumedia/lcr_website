@@ -99,16 +99,18 @@ if(audio_only($content) == true){
             </script> 
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
             </div>
-        <?php }else if($play < 0 && $content['schedule_id']){ ?>
-        
+        <?php }else if($play < 0 && intval($content['schedule_id'])){ 
+                $api_url_s = $config['publicphp'] . "?action=schedule&request=upcoming&schedule_id=" . $content['schedule_id'] . "&before=" . (time() + (60*60*24*3));
+                //echo $api_url_s;
+                $schedule_data = json_decode(file_get_contents($api_url_s),true);
+                if(count($schedule_data) > 0){
+            ?>
         <div class="card z-depth-1">
             <div class="card-content">
                 <span class="card-title">Upcoming shows</span>
                 <table>
             <?php
-                $api_url_s = $config['publicphp'] . "?action=schedule&request=upcoming&schedule_id=" . $content['schedule_id'] . "&before=" . (time() + (60*60*24*3));
-                //echo $api_url_s;
-                $schedule_data = json_decode(file_get_contents($api_url_s),true);
+                
                 $limit = 5;
                 for($i = 0; $i <= 5; $i++){
                     $schedule_item = $schedule_data[$i];
@@ -123,7 +125,7 @@ if(audio_only($content) == true){
                 <span class="pointer" onclick="pages.loadPage('schedule');">See full schedule</span>
             </div>
         </div>
-        <?php } ?>
+        <?php }} ?>
         
     </div>
 

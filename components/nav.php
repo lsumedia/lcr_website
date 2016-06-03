@@ -19,8 +19,7 @@
         <div class="nav-wrapper" id="main-nav">
            <div class="container">
                 <a class="brand-logo"  class="left">
-                    
-                        <img src="res/lcr_white.png" class="nav-logo pointer" onclick="pages.loadPage('home');" alt="LCR Logo" id="lcr-logo" />
+                    <img src="res/lcr_white.png" class="nav-logo pointer" onclick="pages.loadPage('home');" alt="LCR Logo" id="lcr-logo" />
                     
                     <span id="other-logos" class="left">
                         <img class="nav-logo pointer" onclick="window.open('/projects/lsutv');"src="res/lsutv_white.png" alt="LCR Logo" id="tv-logo" class="left" />
