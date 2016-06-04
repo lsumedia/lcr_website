@@ -4,6 +4,7 @@ Minor, high priority:
 "Blog" page
 
 Major, high priority:
+Audio buffer issue
 Home page
 Mobile compatibility
 "About" page

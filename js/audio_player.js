@@ -298,6 +298,7 @@ function audioPlayer(){
     
     this.replaceInner = function(player_element, id, url){
         this.hide();
+        this.stop();
         this.contentId = id;
         player_element.innerHTML = '<iframe class="player-inner" allowfullscreen src="' + url + '"></iframe>';
     }
@@ -318,6 +319,16 @@ function audioPlayer(){
     
     this.paused = function(){
         return this.AudioElement.paused;
+    }
+    
+    /**
+     * Stops playback, preventing buffer buildup and eventual browser crash
+     */
+    this.stop = function(){
+        this.pause();
+        this.AudioElement.src = "";
+        this.AudioElement.load();
+        this.contentId = null;
     }
     
     this.play = function(){
