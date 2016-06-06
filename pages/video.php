@@ -120,7 +120,7 @@ if(audio_only($content) == true){
             ?>
                     <tr onclick="pages.loadPage('show&id=<?= $ashow['id'] ?>')" class="pointer">
                         <td>
-                            <img src="<?= ($ashow['poster_url'])? $ashow['poster_url']: $config['filler_image'] ?>" alt="" style="width:150px;" class="left z-depth-1">
+                            <img src="<?= ($ashow['poster_url'])? $ashow['poster_url']: $config['filler_image'] ?>" alt="" style="width:123px;" class="left z-depth-1">
                         </td>
                         <td>
                             <span class="black-text card-title"><?= $ashow['title'] ?></span>

@@ -139,6 +139,32 @@ nav{
 .navbar-fixed{
     z-index:50;
 }
+#section-select{
+    
+    position: relative;
+    color: black;
+    padding-top:2rem;
+    display:none;
+}
+#section-select-inner{
+    width: 200px;
+    height: 300px;
+    background-color: white;
+}
+
+.section-icon{
+    width:84px;
+}
+.section-icon-media{
+    width:64px;
+}
+
+#section-drop-down:hover + #section-select{
+    display:block;
+}
+#section-select:hover{
+    display:block;
+}
 
 #search-bar{
     height:64px;

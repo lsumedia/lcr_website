@@ -18,9 +18,28 @@
         <!-- Desktop nav bar -->
         <div class="nav-wrapper" id="main-nav">
            <div class="container">
-                <a class="brand-logo"  class="left">
+                <div class="brand-logo"  class="left">
                     <img src="res/lcr_white.png" class="nav-logo pointer" onclick="pages.loadPage('home');" alt="LCR Logo" id="lcr-logo" />
-                </a>
+                    <i class="material-icons pointer" id="section-drop-down" onclick="toggleSectionSelect();">arrow_drop_down</i>
+                    
+                    <div id="section-select" >
+                        <div id="section-select-inner" class="z-depth-1">
+                            <div class="center-align">
+                                <img src="res/media_master.png" class="section-icon-media" />
+                            </div>
+
+                            <div class="center-align">
+                                <img src="res/Label.png" class="section-icon"/>
+                                <img src="res/LCR.png" class="section-icon"/>
+                            </div>
+                            <div class="center-align">
+                                <img src="res/Lens.png" class="section-icon"/>
+                                <img src="res/LSUTV.png" class="section-icon"/>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
                <div class="other-logos" class="left">
                    
                </div>
