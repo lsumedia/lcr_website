@@ -7,4 +7,8 @@ $action = $_GET['action'];
 
 $include_string = 'pages/' . $action . '.php';
 
-require($include_string);
+if(file_exists($include_string)){
+    require($include_string);
+}else{
+    require('pages/error.php');
+}
