@@ -79,29 +79,8 @@ if(audio_only($content) == true){
         <?php 
         /* Comments (VOD) or schedule (Live) */
         if($play > 0 && $config['disqus_name']){ 
-        ?>
-        <!-- Comments section -->
-        <div class="card z-depth-1">
-            <div class="card-content">
-                <div id="disqus_thread"></div> 
-                <script class="dynamic-script">
-                var disqus_config = function () { 
-                    this.page.url = "<?= $config['site_root'] ?>/?action=video&play=<?= $play ?>"; 
-                    // Replace PAGE_URL with your page's canonical URL variable 
-                    this.page.identifier = <?= $play ?>; 
-                    //Replace PAGE_IDENTIFIER with your page's unique identifier variable 
-                    }; 
-                (function() { 
-                    var d = document, 
-                    s = d.createElement('script'); 
-                    s.src = '//<?= $config['disqus_name'] ?>.disqus.com/embed.js'; 
-                    s.setAttribute('data-timestamp', +new Date()); 
-                    (d.head || d.body).appendChild(s); })(); 
-                </script> 
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-            </div>
-        </div>
-        <?php }else if($play < 0 && intval($content['schedule_id'])){ 
+            disqus_comments($play);
+         }else if($play < 0 && intval($content['schedule_id'])){ 
                 $api_url_s = $config['publicphp'] . "?action=schedule&request=upcoming&schedule_id=" . $content['schedule_id'] . "&before=" . (time() + (60*60*24*3));
                 //echo $api_url_s;
                 $schedule_data = json_decode(file_get_contents($api_url_s),true);

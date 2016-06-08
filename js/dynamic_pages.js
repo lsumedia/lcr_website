@@ -25,32 +25,44 @@ function dynamicPages(element_id, player){
     
     //Load page base function
     this.loadPage = function(action, history_mode){
+        //Generate request URL
         var page_url = 'ajax.php?action=' + action;
+        //Display loading bar
         this.loading_bar.style.display = 'block';
         console.log('Loading page ' + page_url);
+        //Execute page exit scripts
         this.runExitScript();
         $.ajax({
                 url: page_url,
                 type : 'GET',
                 success: function(data){
+                    //Load data into element
                     self.element.innerHTML = data;
+                    //Update meta data
                     self.meta = self.updatePageMeta();
+                    //Scroll to top of page
                     window.scrollTo(0,0);
+                    //Hide loading bar
                     self.loading_bar.style.display = 'none';
+                    //Execute dynamic scripts
                     self.enableDynamicContent();
                     try{
+                        //Set page title based on page meta
                         self.updateWindowHistory(action, history_mode, self.meta['title']);
                         document.title = self.meta['title'];
                     }catch(err){
-                        console.log('Warning! Requested page is missing meta data');
+                        console.log('Requested page is missing meta data');
+                        //Set page title to default value
                         self.updateWindowHistory(action, history_mode, config['site_title']);
                         document.title = config['site_title'];
                     }
                     
                     try{
+                        //Search for a player container on the page
                         var p_el = document.getElementById('player-container');
                         p_vid = p_el.getAttribute('videoid');
                         p_audio = p_el.getAttribute('audio');
+                        //If the container ID matches the 
                         if(parseInt(p_vid) == parseInt(self.player.contentId) && p_audio){
                             self.player.loadMiniPlayer(p_el);
                         }
