@@ -134,7 +134,7 @@ function updateChannelPanes(){
 }
 
 function updateChannelList(){
-    /* For homepage channel panes */
+    /* For video page channel panes */
     var json_url_c = config['publicphp'] + '?action=plugin_videomanager&list'; 
     $.ajax({
                 url: json_url_c,
@@ -169,13 +169,14 @@ function updateChannelList(){
                                 container.setAttribute('onclick', "pages.loadPage('video&play=-" + info['channelID'] + "');");
                                 
                                 var html = '<div class="row">\
-                                            <div class="col s4 responsive-video">\
-                                                <img src="' + info['poster'] + '" alt="Channel image" class="responsive-img left z-depth-1"/>\
-                                            </div>\
-                                            <div class="col s8">\
-                                                <span class="black-text card-title">' + info['channel_name'] + '</span>\
-                                                <span class="grey-text truncate">' + info['title'] + '</span>\
-                                                <span class="grey-text truncate italic">' + ((info['nowplaying'])? info['nowplaying']: '') +'</span>\
+                                                <div class="col s4 responsive-video">\
+                                                    <img src="' + info['poster'] + '" alt="Channel image" class="responsive-img left z-depth-1"/>\
+                                                </div>\
+                                                <div class="col s8">\
+                                                    <span class="black-text card-title">' + info['channel_name'] + '</span>\
+                                                    <span class="grey-text truncate">' + info['title'] + '</span>\
+                                                    <span class="grey-text truncate italic">' + ((info['nowplaying'])? info['nowplaying']: '') +'</span>\
+                                                </div>\
                                             </div>';
                                 
                                 if(document.getElementById(pane_id)){
