@@ -5,7 +5,7 @@ $config = [
     'site_root' => 'http://smalldisasters.co.uk/projects/lcr/',
     
     /* Absolute path to public.php file. MUST be certified HTTPS for OG embeds to work */
-    'publicphp' => "http://smalldisasters.co.uk/live/admin/public.php",
+    'publicphp' => "http://grovestreet.me/projects/pamphlet_sso/source/admin/public.php",
     
     /* Channel ID to load as fallback */
     'featured_channel' => 11,
