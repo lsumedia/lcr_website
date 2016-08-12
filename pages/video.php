@@ -86,7 +86,7 @@ if(audio_only($content) == true){
                 <div id="disqus_thread"></div> 
                 <script class="dynamic-script">
                 var disqus_config = function () { 
-                    this.page.url = "<?= $config['site_root'] ?>/?action=video&play=<?= $play ?>"; 
+                    this.page.url = "<?= $config['site_root'] ?>?action=video&play=<?= $play ?>"; 
                     // Replace PAGE_URL with your page's canonical URL variable 
                     this.page.identifier = <?= $play ?>; 
                     //Replace PAGE_IDENTIFIER with your page's unique identifier variable 
