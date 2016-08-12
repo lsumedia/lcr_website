@@ -44,7 +44,11 @@ if(audio_only($content) == true){
         <?php }else { ?>
         <div id="player-container" audio="<?= $content['audioonly'] ?>" videoid="<?= $play ?>" class="z-depth-1 player-container <?= $content['type'] ?>-container" onclick="<?= $onclick ?>">
             <div class="play-button"><i class="material-icons play-button-inner">play_arrow</i></div>
+            <?php if($content['type'] = 'audio_gifv'){ ?>
+            <video class="player-inner" src="<?= $content['poster'] ?>" loop autoplay="true"></video>
+            <?php }else{ ?>
             <img class="player-inner" id="player-holding-image" src="<?= $content['poster'] ?>"/>
+            <?php } ?>
         </div>
         <?php } ?>
         <div id="player-info" class="card z-depth-1">
