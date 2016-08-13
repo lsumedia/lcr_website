@@ -219,7 +219,7 @@ function audioPlayer(){
                         }
                     }
                     
-                    if(info['type'] == 'audio' || forceAudio || audioOnly || info['type'] == 'audio_gifv'){
+                    if(info['type'] == 'audio' || forceAudio || audioOnly){
                         self.hideIframe();
                         //Load as HTML5 Audio
                         var source = info['sources'][0]['src'];
