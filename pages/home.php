@@ -91,3 +91,8 @@ $recent = json_decode(file_get_contents($api_url_r),true);
     updateChannelPanes();
     var channel_timer = setInterval(function(){ updateChannelPanes(); }, 10000);
 </script>
+<!-- Kill refresh timer so it doesn't break anyting else -->
+<script class="exit-script">
+    clearInterval(channel_timer);
+    console.log('Homepage exit script executed');
+</script>
