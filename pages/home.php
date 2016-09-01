@@ -89,5 +89,11 @@ $recent = json_decode(file_get_contents($api_url_r),true);
 <script class="dynamic-script">
     //Run JS to display channel panes
     updateChannelPanes();
-    var channel_timer = setInterval(function(){ updateChannelPanes(); }, 10000);
+    window.home_channel_timer = setInterval(function(){ updateChannelPanes(); }, 10000);
+</script>
+<!-- Kill refresh timer so it doesn't break anything else -->
+<script class="exit-script">
+    clearInterval(window.home_channel_timer);
+    window.home_channel_timer = null;
+    console.log('Homepage exit script executed');
 </script>
