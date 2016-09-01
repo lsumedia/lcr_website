@@ -11,7 +11,7 @@ $config = [
     'featured_channel' => 11,
     
     /* Image to use if one is not found for video/show */
-    'filler_image' => 'http://smalldisasters.co.uk/live/radio/images/featured.png',
+    'filler_image' => 'http://grovestreet.me/media_server/files/f6a6dc.png?width=1920',
     
     'site_title' => "LCR",
     
@@ -19,8 +19,8 @@ $config = [
     
     'site_description' => "LCR is the student radio station of Loughborough University and is a part of the LSU Media section.",
     
-    /* Cover image for homepage*/
-    'cover_image' => 'http://media.lsu.co.uk/wp-content/uploads/2015/04/2767463990_d3317f4cb1_o.jpg',
+    /* Cover image for homepage (1280 x 280px max width)*/
+    'cover_image' => 'http://grovestreet.me/media_server/files/3d6526.jpg?width=1280',
     
     /* Facebook app ID */
     'fb_appId' => '186372988065004',
