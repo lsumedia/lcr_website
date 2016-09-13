@@ -23,7 +23,6 @@
          <!-- Content section -->
         <?php
        
-        var_dump($show['episodes']);
         $current_episode = $show['episodes'][0];
         ?>
         
@@ -34,25 +33,12 @@
                 
                 
                 
-                <?php
-                if($current_episode){
-                    ?>
-                <div class="col s12 l8 hide-on-med-and-down">
-                    <div class="video-container z-depth-1">
-                        <img src="<?= $current_episode['poster'] ?>" width="100%"/>
-                    </div>
-                </div>
-                    <?php
-                }else{
-                    ?>
+               
                 <div class="col s12 l8 hide-on-med-and-down">
                     <div class="video-container z-depth-1">
                         <img src="<?= $show['poster_url'] ?>" width="100%"/>
                     </div>
                 </div>
-                <?php
-                }
-                ?>
                
                 <div class="col s12 l4">
                     
@@ -61,7 +47,7 @@
                             <img src="<?= $show['poster_url'] ?>" />
                         </div> -->
                         <div class="card-content">
-                            <!-- <div id="player-title" class="card-title"><?= $show['title'] ?></div> -->
+                            <div id="player-title" class="card-title"><?= $show['title'] ?></div>
                             <p><?= $show['description'] ?></p>
                         </div>
                     </div>
@@ -130,9 +116,9 @@
                     <?php
                     
                     //Dates after start of selected academic year
-                    $after = $ac_year . '-09-01';
+                    $after = $ac_year . '-08-31';
                     //Dates before end of selected academic year
-                    $before = ($ac_year + 1) . '-08-31';
+                    $before = ($ac_year + 1) . '-09-01';
                     //Episode list API URL
                     $api_url_e = $config['publicphp'] . '?action=plugin_vod&tag=' . $show['tag'] . "&after=$after&before=$before";
                     //Episodes array
