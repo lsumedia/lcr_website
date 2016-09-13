@@ -94,7 +94,7 @@ if(audio_only($content) == true){
                 
                 $limit = 5;
                 for($i = 0; $i <= 5; $i++){
-                    $schedule_item = $schedule_data[$i];
+                    if($schedule_item = $schedule_data[$i]){
                     $ashow = $schedule_item['show'];
             ?>
                     <tr onclick="pages.loadPage('show&id=<?= $ashow['id'] ?>')" class="pointer">
@@ -108,7 +108,7 @@ if(audio_only($content) == true){
                             <span class="grey-text truncate"><?= $schedule_item['niceTime'] ?></span>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php }} ?>
                 </table>
                 <div style="margin-top:1rem;" onclick="pages.loadPage('schedule');" class="pointer">See full schedule</div>
             </div>

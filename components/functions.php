@@ -52,6 +52,8 @@ function audio_only($video){
 
 function disqus_comments($video_id){
     global $config;
+    
+    try{
     ?>
     <!-- Comments section -->
         <div class="card z-depth-1">
@@ -75,4 +77,7 @@ function disqus_comments($video_id){
             </div>
         </div>
     <?php
+    }catch(Exception $e){
+        echo "<p>Error loading comments</p>";
+    }
 }
