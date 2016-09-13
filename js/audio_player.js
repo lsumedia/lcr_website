@@ -289,11 +289,19 @@ function audioPlayer(){
         }else{
            self.nowplaying.innerHTML = '';
         }
+        
+       
         self.IframeDescription.innerHTML = info['description'];
         self.posterElement.style.backgroundImage = "url('" + info['poster'] + "')";
         console.log('Data refreshed');
         //Mini player data
         self.miniPlayer.style.backgroundImage = "url('" + info['poster'] + "')";
+        /*
+        if(info['theme_colour'] != null){
+            this.miniTitle.style.backgroundColor = info['theme_colour'];
+        }else{
+            this.miniTitle.style.backgroundColor = '';
+        }*/
     }
     
     this.replaceInner = function(player_element, id, url){
