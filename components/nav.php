@@ -20,7 +20,7 @@
            <div class="container">
                 <div class="brand-logo"  class="left">
                     <img src="res/lcr_white.png" class="nav-logo pointer" onclick="pages.loadPage('home');" alt="LCR Logo" id="lcr-logo" />
-                    <i class="material-icons pointer" id="section-drop-down" onclick="toggleSectionSelect();">arrow_drop_down</i>
+                    <!-- <i class="material-icons pointer" id="section-drop-down" onclick="toggleSectionSelect();">arrow_drop_down</i>
                     
                     <div id="section-select" >
                         <div id="section-select-inner" class="z-depth-1">
@@ -37,7 +37,7 @@
                                 <img src="res/LSUTV.png" class="section-icon"/>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     
                 </div>
                <div class="other-logos" class="left">

@@ -23,7 +23,7 @@
          <!-- Content section -->
         <?php
        
-        
+        var_dump($show['episodes']);
         $current_episode = $show['episodes'][0];
         ?>
         

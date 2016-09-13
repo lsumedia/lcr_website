@@ -81,16 +81,24 @@ function dynamicPages(element_id, player){
         $('.parallax').parallax();
         //Load dynamic scripts
         var scripts = document.getElementsByClassName('dynamic-script');
-        for(n in scripts){
-            eval(scripts[n].innerHTML);
+        try{
+            for(n in scripts){
+                eval(scripts[n].innerHTML);
+            }
+        }catch(e){
+            console.log('Error in load script: ' + e.message);
         }
         console.log('Dynamic content reenabled');
     }
     
     this.runExitScript = function(){
         var scripts = document.getElementsByClassName('exit-script');
-        for(n in scripts){
-            eval(scripts[n].innerHTML);
+        try{
+            for(n in scripts){
+                eval(scripts[n].innerHTML);
+            }
+        }catch(error){
+            console.log('Error in exit script: ' + error.message);
         }
         console.log('Executed page exit script');
     }
