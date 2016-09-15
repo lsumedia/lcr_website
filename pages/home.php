@@ -58,7 +58,7 @@ $recent = json_decode(file_get_contents($api_url_r),true);
 
 <div class="row">
     <div class="col s12">
-            <h4>Recent videos</h4>
+            <h4>Recent shows & videos</h4>
     </div>
 </div>
 

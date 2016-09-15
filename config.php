@@ -19,7 +19,7 @@ $config = [
     
     'site_description' => "LCR is the student radio station of Loughborough University and is a part of the LSU Media section.",
     
-    /* Cover image for homepage (1280 x 280px max width)*/
+    /* Cover image for "Listen Live" link (1280 x 280px max width)*/
     'cover_image' => 'http://grovestreet.me/media_server/files/3d6526.jpg?width=1280',
     
     /* Facebook app ID */
