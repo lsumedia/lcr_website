@@ -42,8 +42,12 @@ $channels = json_decode(file_get_contents($api_url_c),true);
                                 <?= ($details['title'])? $details['title'] : $show['title'] ?>
                                 <span class="right"><?= $event['niceTime'] ?></span>
                             </div>
-                            <div class="collapsible-body" >
-                                <span><?= ($details['description'])? $details['description'] : $show['description'] ?></span>
+                            <div class="collapsible-body row" style="border-bottom: none;" >
+                                <img src="<?= $show['poster_url'] ?>" alt="<?= $show['title'] ?> poster" class="col s12 l3"/>
+                                <span class="col s12 l9"><?= ($details['description'])? $details['description'] : $show['description'] ?></span>
+                                <div class="col s12" >
+                                    <p style="border-bottom: 1px solid <?= $show['theme_colour'] ?>">All episodes</p>
+                                </div>
                             </div>
                         </li>    
                         <?php }
