@@ -20,9 +20,15 @@
 }
 
 $lcr_blue: #2486c7;
+$media_pink: pink;
+$media_purple:#4a1863;
 
-.theme_blue{
+.theme-blue{
     background-color:$lcr_blue;
+}
+
+.fit-image{
+    height:100%;
 }
 
 html{
@@ -299,6 +305,21 @@ overflow:hidden;
 
 .cinescope-container:after{
     padding-top:41.7%;
+}
+
+
+/* Tabs section */
+
+.tabs .tab a{
+    color:$lcr_blue;
+}
+
+.tabs .tab a:hover{
+    color:$media_purple;
+}
+
+.tabs .indicator{
+    background-color:$lcr_blue;
 }
 
 @media(max-width:600px){

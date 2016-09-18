@@ -11,6 +11,7 @@ if($play > 0){
     $api_url = $config['publicphp'] . '?action=plugin_videomanager&id=' . abs($play);
     $iframe_url = $config['publicphp'] . '?action=plugin_videomanager&iframe=' . abs($play)  . '&autoplay=1';
     $is_live = true;
+    $chan_id = abs($play);
 }
 
 $content = json_decode(file_get_contents($api_url),true);
@@ -81,6 +82,7 @@ if(audio_only($content) == true){
         if($play > 0 && $config['disqus_name']){ 
             disqus_comments($play);
          }else if($play < 0 && intval($content['schedule_id'])){ 
+                
                 $api_url_s = $config['publicphp'] . "?action=schedule&request=upcoming&schedule_id=" . $content['schedule_id'] . "&before=" . (time() + (60*60*24*3));
                 //echo $api_url_s;
                 $schedule_data = json_decode(file_get_contents($api_url_s),true);
@@ -110,7 +112,7 @@ if(audio_only($content) == true){
                     </tr>
                 <?php }} ?>
                 </table>
-                <div style="margin-top:1rem;" onclick="pages.loadPage('schedule');" class="pointer">See full schedule</div>
+                <div style="margin-top:1rem;" onclick="pages.loadPage('schedule&id=<?= $chan_id ?>');" class="pointer">See full schedule</div>
             </div>
         </div>
         <?php }} ?>

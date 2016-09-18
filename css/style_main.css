@@ -2,8 +2,11 @@
     Created on : 30-Apr-2016, 11:51:03
     Author     : Cameron Small
 */
-.theme_blue {
+.theme-blue {
   background-color: #2486c7; }
+
+.fit-image {
+  height: 100%; }
 
 html {
   overflow-y: scroll; }
@@ -215,6 +218,16 @@ nav {
 
 .cinescope-container:after {
   padding-top: 41.7%; }
+
+/* Tabs section */
+.tabs .tab a {
+  color: #2486c7; }
+
+.tabs .tab a:hover {
+  color: #4a1863; }
+
+.tabs .indicator {
+  background-color: #2486c7; }
 
 @media (max-width: 600px) {
   .parallax-container {
