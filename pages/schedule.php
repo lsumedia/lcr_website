@@ -31,22 +31,25 @@ $channels = json_decode(file_get_contents($api_url_c),true);
                     if(count($schedule_data) > 0){
                         
                         //Schedule has events
-                        echo '<ul class="collapsible" data-collapsible="accordion">';
+                        echo '<ul class="collapsible popout" data-collapsible="accordion">';
                         foreach($schedule_data as $event){ 
                             $show = $event['show'];
                             $details = $event['event'];
+                            $theme_rgba = null;
                         
                         ?>
                         <li>
-                            <div class="collapsible-header" style="border-bottom: 1px solid <?= $show['theme_colour'] ?>">
+                            <div class="collapsible-header" style="//border-bottom: 1px solid <?= $show['theme_colour'] ?>">
                                 <?= ($details['title'])? $details['title'] : $show['title'] ?>
                                 <span class="right"><?= $event['niceTime'] ?></span>
                             </div>
                             <div class="collapsible-body row" style="border-bottom: none;" >
                                 <img src="<?= $show['poster_url'] ?>" alt="<?= $show['title'] ?> poster" class="col s12 l3"/>
-                                <span class="col s12 l9"><?= ($details['description'])? $details['description'] : $show['description'] ?></span>
-                                <div class="col s12" >
-                                    <p style="border-bottom: 1px solid <?= $show['theme_colour'] ?>">All episodes</p>
+                                <div class="col s12 l9">
+                                    <span class=""><?= ($details['description'])? $details['description'] : $show['description'] ?></span>
+                                    <div class="btn-flat right theme-blue-text waves-effect waves-blue">All episodes</div>
+                                </div>
+                                <div class="col s12">
                                 </div>
                             </div>
                         </li>    
