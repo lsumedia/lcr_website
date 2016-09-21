@@ -67,6 +67,28 @@ iframe {
 .pad {
   padding: 1rem; }
 
+.sixteen-nine {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden; }
+
+.sixteen-nine:after {
+  padding-top: 56.25%;
+  /* 16:9 ratio */
+  display: block;
+  content: ''; }
+
+.sixteen-nine-inner {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: black;
+  color: white; }
+
 .dropdown-content li > a, .dropdown-content li > span {
   color: #2486c7; }
 

@@ -132,8 +132,8 @@ if(audio_only($content) == true){
                 <?php foreach($channels as $channel){ ?>
                 <div id="channel_pane_<?= $channel['id'] ?>" class="playlist-item z-depth-0 channel-pane" onclick="pages.loadPage('video&play=-<?= $channel['id'] ?>')">
                     <div class="row">
-                        <div class="col s4 responsive-video">                                                
-                            <img src="<?= $config['filler_image'] ?>" alt="Channel image" class="responsive-img left z-depth-1">                                   
+                        <div class="col s4 sixteen-nine">                                                
+                            <img src="<?= $config['filler_image'] ?>" alt="Channel image" class="sixteen-nine-inner left z-depth-1">                                   
                         </div>                                            
                         <div class="col s8">                                                
                             <span class="black-text card-title"><?= $channel['title'] ?></span>                                                
@@ -165,8 +165,10 @@ if(audio_only($content) == true){
             ?>
             <div class="hoverable z-depth-0 playlist-item" onclick="pages.loadPage('video&play=<?= $result['id'] ?>')">
                 <div class="row">
-                    <div class="col s4 responsive-video">
-                        <img src="<?= $result['poster'] ?>" alt="" class="responsive-img left z-depth-1" />
+                    <div class="col s4">
+                        <div class="sixteen-nine z-depth-1">
+                            <img src="<?= $result['poster'] ?>" alt="" class="sixteen-nine-inner left z-depth-1" />
+                        </div>
                     </div>
                     <div class="col s8">
                         <span class="black-text card-title">
