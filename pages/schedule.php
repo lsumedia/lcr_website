@@ -53,9 +53,11 @@ $freqs = [0 => 'One-time', 1 => 'Daily', '7' => 'Weekly', '14' => 'Fortnightly',
                                     <span class=""><?= ($details['description'])? $details['description'] : $show['description'] ?></span>
                                 </div>
                                 <div class='bottom-buttons'>
+                                    <?php if(strlen($show['tag']) > 0){ ?>
                                     <div class="btn-flat right theme-blue-text waves-effect waves-blue" onclick="pages.loadPage('show&id=<?= $show['id'] ?>');">
                                          Previous episodes
                                     </div>
+                                    <?php } ?>
                                     <div class="btn-flat disabled right">
                                         <?= $freqs[$details['frequency']] ?>
                                     </div>
