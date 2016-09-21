@@ -1,8 +1,10 @@
 <?php
-$no_show_message = "No shows scheduled";
+$no_show_message = "No programming scheduled";
 
 $api_url_c = $config['publicphp'] . "?action=plugin_videomanager&list";
 $channels = json_decode(file_get_contents($api_url_c),true);
+
+$freqs = [0 => 'One-time', 1 => 'Daily', '7' => 'Weekly', '14' => 'Fortnightly', '30' => 'Monthly'];
 ?>
 <div class="row">
     <div class="col s12">
@@ -36,6 +38,8 @@ $channels = json_decode(file_get_contents($api_url_c),true);
                             $show = $event['show'];
                             $details = $event['event'];
                             $theme_rgba = null;
+                            
+                            
                         
                         ?>
                         <li>
@@ -43,11 +47,18 @@ $channels = json_decode(file_get_contents($api_url_c),true);
                                 <?= ($details['title'])? $details['title'] : $show['title'] ?>
                                 <span class="right"><?= $event['niceTime'] ?></span>
                             </div>
-                            <div class="collapsible-body row" style="border-bottom: none;" >
+                            <div class="collapsible-body row button-container" style="border-bottom: none;" >
                                 <img src="<?= $show['poster_url'] ?>" alt="<?= $show['title'] ?> poster" class="col s12 l3"/>
                                 <div class="col s12 l9">
                                     <span class=""><?= ($details['description'])? $details['description'] : $show['description'] ?></span>
-                                    <div class="btn-flat right theme-blue-text waves-effect waves-blue">All episodes</div>
+                                </div>
+                                <div class='bottom-buttons'>
+                                    <div class="btn-flat right theme-blue-text waves-effect waves-blue" onclick="pages.loadPage('show&id=<?= $show['id'] ?>');">
+                                         Previous episodes
+                                    </div>
+                                    <div class="btn-flat disabled right">
+                                        <?= $freqs[$details['frequency']] ?>
+                                    </div>
                                 </div>
                                 <div class="col s12">
                                 </div>
@@ -74,7 +85,7 @@ $channels = json_decode(file_get_contents($api_url_c),true);
 <script class="dynamic-script">
     $('ul.tabs').tabs();
     $('.collapsible').collapsible({
-      accordion : true
+      accordion : false
     });
     <?php
     if(isset($_GET['id']) && $id = $_GET['id']){
