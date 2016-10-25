@@ -4,6 +4,8 @@ $config = [
     /* Site URL including trailing slash */
     'site_root' => 'http://smalldisasters.co.uk/projects/lcr/',
     
+    /* (Pamphlet 4.0) Path to installation with trailing slash */
+    
     /* Absolute path to public.php file. MUST be certified HTTPS for OG embeds to work */
     'publicphp' => "http://grovestreet.me/projects/pamphlet_sso/source/admin/public.php",
     
