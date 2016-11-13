@@ -1,6 +1,6 @@
 
 function iframeUrl(video_id){
-    return publicphp + '?action=plugin_vod&iframe=' + video_id;
+    return publicphp + 'generated.php?a=video/' + video_id;
 }
 
 function isLive(duration){

@@ -1,0 +1,27 @@
+{
+  "name": "lcrwebsite",
+  "homepage": "https://github.com/lsumedia/lcr_website",
+  "authors": [
+    "Cameron Small <camerontsmall@googlemail.com>"
+  ],
+  "description": "Loughborough Campus Radio Website HTML Components",
+  "main": "index.html",
+  "keywords": [
+    "student",
+    "radio",
+    "multimedia"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "foundation": "^5.5.3",
+    "handlebars": "^4.0.5"
+  }
+}
